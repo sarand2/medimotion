@@ -1,0 +1,91 @@
+﻿<!--
+//*********************************************************
+//
+// Copyright (c) Microsoft. All rights reserved.
+// This code is licensed under the MIT License (MIT).
+// THIS CODE IS PROVIDED *AS IS* WITHOUT WARRANTY OF
+// ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY
+// IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR
+// PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.
+//
+//*********************************************************
+-->
+<Page x:ConnectionId='1'
+    x:Class="MediMotion.Pharmaceuticals"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:data="using:MediMotion.Model"
+    xmlns:local="using:MediMotion"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+
+    <Page.Resources>
+        <!-- Use a collection view source for content that presents itself as a list of items that can be grouped or sorted.  Otherwise, you can use x:Bind
+        directly on the GridView's item source to for further optimization. Please see the AppUIBasics sample for an example of how to do this.  -->
+        <CollectionViewSource x:ConnectionId='2' x:Name="PharmaceuticalsCVS"  IsSourceGrouped="True" />
+
+        <!--#region DataTemplate-->
+        <!-- When using x:Bind, you need to set x:DataType -->
+        <DataTemplate x:ConnectionId='3' x:Name="ContactGridViewTemplate"                                 >
+            <StackPanel x:ConnectionId='4' Orientation="Vertical">
+                <Ellipse x:ConnectionId='5' x:Name="Ellipse" 
+                             Width ="100"
+                             Height="100"
+                             VerticalAlignment="Center"
+                             HorizontalAlignment="Center"
+                                                   
+                             Margin="4,4,4,4"/>
+                <TextBlock x:ConnectionId='6' x:Name="ContactName" 
+                               Margin="4,4,0,4"
+                                                    
+                                           
+                               Style="{ThemeResource BodyTextBlockStyle}" 
+                               HorizontalAlignment="Center"/>
+                <TextBlock x:ConnectionId='7' x:Name="Position" 
+                                                        
+                               Margin="4,4,0,4"
+                                           
+                               Style="{ThemeResource BodyTextBlockStyle}"
+                               FontSize="12"
+                               Foreground="Gray"
+                               HorizontalAlignment="Center"/>
+            </StackPanel>
+        </DataTemplate>
+        <!--#endregion-->
+    </Page.Resources>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Text="Pharmaceuticals" 
+                   VerticalAlignment="Center"
+                   Style="{ThemeResource TitleTextBlockStyle}" 
+                   Grid.Column="1"/>
+
+        <GridView x:ConnectionId='8'                                               
+                  ItemTemplate="{StaticResource ContactGridViewTemplate}"
+                  Grid.Row="1"
+                  Grid.ColumnSpan="2">
+            <GridView.GroupStyle>
+                <GroupStyle >
+                    <GroupStyle.HeaderTemplate>
+                        <DataTemplate                                >
+                            <TextBlock x:ConnectionId='10'                     
+                                       Style="{ThemeResource TitleTextBlockStyle}"/>
+                        </DataTemplate>
+                    </GroupStyle.HeaderTemplate>
+                </GroupStyle>
+            </GridView.GroupStyle>
+        </GridView>
+    </Grid>
+</Page>
+
