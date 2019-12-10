@@ -17,47 +17,76 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:media="using:Microsoft.UI.Xaml.Media"
     xmlns:data="using:MediMotion.Model"
+    xmlns:controlsprimitives="using:Microsoft.Toolkit.Uwp.UI.Controls.Primitives"
     mc:Ignorable="d">
-
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <StackPanel>
-            <Border CornerRadius="0,0,30,30" Margin="10,10,10,10" Width="1350">
-                <CalendarView CalendarViewDayItemChanging="CalendarView_CalendarViewDayItemChanging" HorizontalAlignment="Center" Width="1380" Height="291" />
-            </Border>
-            <controls:DataGrid x:Name="dataGrid1" 
-                    Height="600" Margin="12"
+    <Page.Resources>
+        <ResourceDictionary>
+            <Style x:Key="ColumnHeaderStyle" TargetType="controlsprimitives:DataGridColumnHeader">
+                <Setter Property="FontSize" Value="20" />
+                <Setter Property="Height" Value="70" />
+                <Setter Property="FontFamily" Value="Segoe UI" />
+                <Setter Property="FontWeight" Value="SemiBold" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+            </Style>
+            <ResourceDictionary.ThemeDictionaries>
+                <ResourceDictionary x:Key="Default">
+                    <media:AcrylicBrush x:Key="CustomAcrylicInAppBrush" BackgroundSource="Backdrop" TintOpacity="0.8" TintColor="Black" FallbackColor="Green"/>
+                    <media:AcrylicBrush x:Key="CustomAcrylicBackgroundBrush" BackgroundSource="HostBackdrop" TintOpacity="0.8" TintColor="Black" FallbackColor="Green"/>
+                    <media:AcrylicBrush x:Key="CustomAcrylicInAppLuminosity" BackgroundSource="Backdrop" TintOpacity="0.8" TintColor="SkyBlue" FallbackColor="SkyBlue"/>
+                </ResourceDictionary>
+            </ResourceDictionary.ThemeDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+    
+    <Grid Background="{ThemeResource CustomAcrylicInAppBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <Border CornerRadius="0,0,30,30" Margin="10,10,10,10" Grid.Row="0">
+            <CalendarView CalendarViewDayItemChanging="CalendarView_CalendarViewDayItemChanging" HorizontalAlignment="Stretch" FontSize="25" FontFamily="Calibri" 
+                              MonthYearItemFontFamily="Segoe UI" MonthYearItemFontSize="40" DayItemFontFamily="Segoe UI" DayItemFontSize="25" DayOfWeekFormat="{}{dayofweek.abbreviated(2)}" FirstDayOfWeek="Monday"/>
+        </Border>
+        <controls:DataGrid x:Name="dataGrid1"  Grid.Row="1"
                     AutoGenerateColumns="False"
-                    ItemsSource="{x:Bind activePatientsToday}">
-                <controls:DataGrid.Columns>
-                    <controls:DataGridTextColumn 
+                    ItemsSource="{x:Bind activePatientsToday}"
+                               ColumnHeaderStyle="{StaticResource ColumnHeaderStyle}"
+                               CanUserResizeColumns="False"
+                               IsReadOnly="True"
+                               >
+            <controls:DataGrid.Columns>
+                <controls:DataGridTextColumn 
             Header="Time" 
-            Width="200"
-            Binding="{Binding Date}" 
-            FontSize="20" />
-                    <controls:DataGridTextColumn 
+                        FontSize="25"
+                         FontFamily="Segoe UI"
+            Width="1*"
+            Binding="{Binding Date}"  />
+                <controls:DataGridTextColumn 
             Header="First Name" 
-            Width="300"
-            Binding="{Binding FirstName}" 
-            FontSize="20" />
-                    <controls:DataGridTextColumn 
+                         FontSize="25"
+                         FontFamily="Segoe UI"
+            Binding="{Binding FirstName}"  />
+                <controls:DataGridTextColumn 
             Header="Last Name" 
-            Width="300"
-            Binding="{Binding LastName}" 
-            FontSize="20" />
-                    <controls:DataGridTextColumn 
-            Header="Method" 
-            Width="300"
-            Binding="{Binding Method}" 
-            FontSize="20" />
-                     <controls:DataGridTextColumn 
+                         FontSize="25"
+                         FontFamily="Segoe UI"
+            Width="1*"
+            Binding="{Binding LastName}"  />
+                <controls:DataGridTextColumn 
+            Header="Method"
+                         FontSize="25"
+                         FontFamily="Segoe UI"
+            Width="1*"
+            Binding="{Binding Method}"  />
+                <controls:DataGridTextColumn 
             Header="Category" 
-            Width="400"
-            Binding="{Binding Category}" 
-            FontSize="20" />
-                </controls:DataGrid.Columns>
-            </controls:DataGrid>
-
-        </StackPanel>
+                          FontSize="25"
+                         FontFamily="Segoe UI"
+            Width="2*"
+            Binding="{Binding Category}" />
+            </controls:DataGrid.Columns>
+        </controls:DataGrid>
     </Grid>
 </Page>

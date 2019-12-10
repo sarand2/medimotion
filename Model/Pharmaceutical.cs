@@ -4,6 +4,8 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 
 namespace MediMotion.Model
 {
@@ -14,6 +16,8 @@ namespace MediMotion.Model
         public string Category { get; set; }
 
         public string Color { get; set; }
+
+        public ImageBrush Molecule { get; set; }
         public static ObservableCollection<Pharmaceutical> getPharmaceuticals(int numberOfPharmaceuticals)
         {
             ObservableCollection<Pharmaceutical> pharmaceuticals = new ObservableCollection<Pharmaceutical>();
@@ -58,12 +62,25 @@ namespace MediMotion.Model
             List<string> categories = new List<string>() { "Antipyretics","Analgesics","Antimalarial drugs","Antibiotics","Antiseptics","Mood stabilizers","Hormone replacements","Oral contraceptives", "Stimulants", "Tranquilizers", "Statins"};
             return categories[random.Next(0, categories.Count)];
         }
+        static List<string> molecule_pictures = new List<string>() {
+            "molecule_1.png",
+            "molecule_2.png",
+            "molecule_3.png",
+            "molecule_4.png",
+            "molecule_5.png",
+            "molecule_6.png",
+            "molecule_7.png",
+            "molecule_8.png",
+            "molecule_10.png",
+            "molecule_10.png",};
         public static Pharmaceutical GetNewPharmaceutical()
         {
-
             string name = GenerateName();
             string category = GenerateCategory();
             string color = "LightGray";
+            int random_molecule = random.Next(0, 10);
+            ImageBrush molecule = new ImageBrush();
+            molecule.ImageSource = new BitmapImage(new Uri("ms-appx:///Images/" + molecule_pictures[random_molecule])); //new Uri("ms-appx:///Images/" + molecule_pictures[random_molecule]));
             switch (category)
             {
                 case "Antipyretics":
@@ -101,7 +118,8 @@ namespace MediMotion.Model
             {
                 Name = name,
                 Category = category,
-                Color = color
+                Color = color,
+                Molecule = molecule
             };
         }
     }

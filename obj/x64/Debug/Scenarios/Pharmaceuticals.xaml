@@ -18,32 +18,27 @@
     xmlns:local="using:MediMotion"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:media="using:Microsoft.UI.Xaml.Media"
     mc:Ignorable="d">
-
-
     <Page.Resources>
-        <!-- Use a collection view source for content that presents itself as a list of items that can be grouped or sorted.  Otherwise, you can use x:Bind
-        directly on the GridView's item source to for further optimization. Please see the AppUIBasics sample for an example of how to do this.  -->
-        <CollectionViewSource x:ConnectionId='2' x:Name="PharmaceuticalsCVS"  IsSourceGrouped="True" />
-
-        <!--#region DataTemplate-->
-        <!-- When using x:Bind, you need to set x:DataType -->
-        <DataTemplate x:ConnectionId='3' x:Name="ContactGridViewTemplate"                                 >
-            <StackPanel x:ConnectionId='4' Orientation="Vertical">
-                <Ellipse x:ConnectionId='5' x:Name="Ellipse" 
+        <ResourceDictionary>
+            <DataTemplate x:ConnectionId='2' x:Name="ContactGridViewTemplate"                                 >
+                <StackPanel x:ConnectionId='4' Orientation="Vertical">
+                    <Ellipse x:ConnectionId='5' x:Name="Ellipse" 
                              Width ="100"
                              Height="100"
                              VerticalAlignment="Center"
                              HorizontalAlignment="Center"
-                                                   
+                                                      StrokeThickness="5"
+                                                      
                              Margin="4,4,4,4"/>
-                <TextBlock x:ConnectionId='6' x:Name="ContactName" 
+                    <TextBlock x:ConnectionId='6' x:Name="ContactName" 
                                Margin="4,4,0,4"
                                                     
                                            
                                Style="{ThemeResource BodyTextBlockStyle}" 
                                HorizontalAlignment="Center"/>
-                <TextBlock x:ConnectionId='7' x:Name="Position" 
+                    <TextBlock x:ConnectionId='7' x:Name="Position" 
                                                         
                                Margin="4,4,0,4"
                                            
@@ -51,12 +46,28 @@
                                FontSize="12"
                                Foreground="Gray"
                                HorizontalAlignment="Center"/>
-            </StackPanel>
-        </DataTemplate>
+                </StackPanel>
+            </DataTemplate>
+            <!-- Use a collection view source for content that presents itself as a list of items that can be grouped or sorted.  Otherwise, you can use x:Bind
+        directly on the GridView's item source to for further optimization. Please see the AppUIBasics sample for an example of how to do this.  -->
+        <CollectionViewSource x:ConnectionId='3' x:Name="PharmaceuticalsCVS"  IsSourceGrouped="True" />
+        
+            <ResourceDictionary.ThemeDictionaries>
+                <ResourceDictionary x:Key="Default">
+                    <media:AcrylicBrush x:Key="CustomAcrylicInAppBrush" BackgroundSource="Backdrop" TintOpacity ="0.3"  TintColor="Black" FallbackColor="Black"/>
+                    <media:AcrylicBrush x:Key="CustomAcrylicBackgroundBrush" BackgroundSource="HostBackdrop" TintOpacity="0.8" TintColor="Black" FallbackColor="Green"/>
+                    <media:AcrylicBrush x:Key="CustomAcrylicInAppLuminosity" BackgroundSource="Backdrop" TintOpacity="0.8" TintColor="SkyBlue" FallbackColor="SkyBlue"/>
+                </ResourceDictionary>
+            </ResourceDictionary.ThemeDictionaries>
+           
+                <!--#region DataTemplate-->
+        <!-- When using x:Bind, you need to set x:DataType -->
+       
+        </ResourceDictionary>
         <!--#endregion-->
     </Page.Resources>
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="{StaticResource CustomAcrylicInAppBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -68,6 +79,9 @@
 
         <TextBlock Text="Pharmaceuticals" 
                    VerticalAlignment="Center"
+                   Margin="20,0,10,0"
+                   FontSize="35"
+                   FontWeight="SemiBold"
                    Style="{ThemeResource TitleTextBlockStyle}" 
                    Grid.Column="1"/>
 

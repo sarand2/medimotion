@@ -9,13 +9,17 @@
 //
 //*********************************************************
 
+using MediMotion.Scenarios;
 using System;
 using System.Collections.Generic;
+using System.Numerics;
+using Windows.UI.Composition;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Automation.Peers;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Data;
+using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
@@ -38,7 +42,6 @@ namespace MediMotion
             // This is a static public property that allows downstream pages to get a handle to the MainPage instance
             // in order to call methods that are in this class.
             Current = this;
-            SampleTitle.Text = FEATURE_NAME;
 
             ScenarioFrame.Navigate(scenarios[0].ClassType);
 
@@ -178,6 +181,10 @@ namespace MediMotion
         {
             ScenarioFrame.Navigate(scenarios[4].ClassType);
         }
+        private void Hardware_Click(object sender, RoutedEventArgs e)
+        {
+            ScenarioFrame.Navigate(typeof(HardwareList));
+        }
 
         private void SignOut_Click(object sender, RoutedEventArgs e)
         {
@@ -189,10 +196,44 @@ namespace MediMotion
         {
             ScenarioFrame.Navigate(scenarios[0].ClassType);
         }
+
+
+        // for icon animations
+        Compositor _compositor = Window.Current.Compositor;
+        SpringVector3NaturalMotionAnimation _springAnimation;
+
+        private void CreateOrUpdateSpringAnimation(float finalValue)
+        {
+            if (_springAnimation == null)
+            {
+                _springAnimation = _compositor.CreateSpringVector3Animation();
+                _springAnimation.Target = "Scale";
+            }
+
+            _springAnimation.FinalValue = new Vector3(finalValue);
+        }
+
+        private void element_PointerEntered(object sender, PointerRoutedEventArgs e)
+        {
+            // Scale up to 1.5
+            CreateOrUpdateSpringAnimation(1.2f);
+
+            (sender as UIElement).StartAnimation(_springAnimation);
+        }
+
+        private void element_PointerExited(object sender, PointerRoutedEventArgs e)
+        {
+            // Scale back down to 1.0
+            CreateOrUpdateSpringAnimation(1.0f);
+
+            (sender as UIElement).StartAnimation(_springAnimation);
+        }
     }
     public enum NotifyType
     {
         StatusMessage,
         ErrorMessage
     };
+
+   
 }

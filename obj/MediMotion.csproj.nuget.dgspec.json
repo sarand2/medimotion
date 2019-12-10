@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\PC\\Desktop\\L2\\MediMotion\\MediMotion.csproj": {}
+    "C:\\Users\\PC\\Desktop\\ZKS projektas\\medimotion\\MediMotion.csproj": {}
   },
   "projects": {
-    "C:\\Users\\PC\\Desktop\\L2\\MediMotion\\MediMotion.csproj": {
+    "C:\\Users\\PC\\Desktop\\ZKS projektas\\medimotion\\MediMotion.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\PC\\Desktop\\L2\\MediMotion\\MediMotion.csproj",
+        "projectUniqueName": "C:\\Users\\PC\\Desktop\\ZKS projektas\\medimotion\\MediMotion.csproj",
         "projectName": "MediMotion",
-        "projectPath": "C:\\Users\\PC\\Desktop\\L2\\MediMotion\\MediMotion.csproj",
+        "projectPath": "C:\\Users\\PC\\Desktop\\ZKS projektas\\medimotion\\MediMotion.csproj",
         "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\PC\\Desktop\\L2\\MediMotion\\obj\\",
+        "outputPath": "C:\\Users\\PC\\Desktop\\ZKS projektas\\medimotion\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
@@ -48,6 +48,10 @@
             "Microsoft.Toolkit.Uwp.UI.Controls.DataGrid": {
               "target": "Package",
               "version": "[6.0.0, )"
+            },
+            "Microsoft.UI.Xaml": {
+              "target": "Package",
+              "version": "[2.3.191129002, )"
             }
           },
           "imports": [

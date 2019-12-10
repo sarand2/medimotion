@@ -37,7 +37,7 @@ namespace MediMotion
         {
             this.InitializeComponent();
             ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.FullScreen;
-            activePatients = ActivePatient.getActivePatients(100);
+            activePatients = ActivePatient.getActivePatients(600);
             getActivePatientsToday();
 
         }
