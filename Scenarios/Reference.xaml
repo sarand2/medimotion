@@ -22,10 +22,10 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <StackPanel>
             <Grid>
-                <Button Height="100" Width="350" Margin="20,0,0,0" Content="PubMed" Click="PubMed_Click"></Button>
-                <Button Height="100" Width="350" Margin="390,0,0,0" Content="Drugs database" Click="Drugs_Click"></Button>
-                <Button Height="100" Width="350" Margin="760,0,0,0" Content="Ovid" Click="Ovid_Click"></Button>
-                <Button Height="100" Width="350" Margin="1130,0,0,0" Content="ScienceDirect" Click="Science_Click"></Button>
+                <Button Height="100" Width="300" Margin="20,0,0,0" Content="PubMed" Click="PubMed_Click"></Button>
+                <Button Height="100" Width="300" Margin="390,0,0,0" Content="Drugs database" Click="Drugs_Click"></Button>
+                <Button Height="100" Width="300" Margin="760,0,0,0" Content="Ovid" Click="Ovid_Click"></Button>
+                <Button Height="100" Width="300" Margin="1130,0,0,0" Content="ScienceDirect" Click="Science_Click"></Button>
             </Grid>
             <WebView x:Name="webView1" Height="890"/>
         </StackPanel>

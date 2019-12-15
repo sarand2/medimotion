@@ -64,14 +64,49 @@
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="310"></RowDefinition>
         </Grid.RowDefinitions>
-        <ParallaxView x:Name="paraimage" Grid.Row="0" HorizontalShift="400" Source="{x:Bind HomeFeedGrid}" VerticalAlignment="Bottom" Margin="0,-228,0,0">
+        <ContentPresenter
+                x:Name="DetailContentPresenter"
+                Margin="0,0,0,310"
+                Grid.Row="0"
+                MinHeight="690"
+                BorderThickness="1,0,0,0"
+                BorderBrush="{ThemeResource SystemControlForegroundBaseLowBrush}"
+                Content="{x:Bind HomeFeedGrid.SelectedItem, Mode=OneWay}" Grid.RowSpan="2">
+            <ContentPresenter.ContentTemplate>
+                <DataTemplate x:DataType="datamodel:Feed">
+                    <StackPanel>
+                        <TextBlock Style="{ThemeResource TitleTextBlockStyle}"
+                                   Margin="0,8"       
+                                   Text="{x:Bind Title}"/>
+                        <TextBlock Style="{ThemeResource BodyTextBlockStyle}"
+                                   Margin="0,9" 
+                                   Text="{x:Bind Author}" />
+                        <TextBlock Style="{ThemeResource BodyTextBlockStyle}" 
+                                   Margin="0,9" 
+                                   Text="{x:Bind Uri}" />
+                        <TextBlock Style="{ThemeResource BodyTextBlockStyle}" 
+                                   Margin="0,9" 
+                                   TextWrapping="WrapWholeWords"
+                                   Text="{x:Bind Description}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ContentPresenter.ContentTemplate>
+            <ContentPresenter.ContentTransitions>
+                <TransitionCollection/>
+            </ContentPresenter.ContentTransitions>
+        </ContentPresenter>
+
+
+        <!--<ParallaxView x:Name="paraimage" Grid.Row="0" HorizontalShift="400" Source="{x:Bind HomeFeedGrid}" VerticalAlignment="Bottom" Margin="0,-228,0,0">
             <Image 
                    Margin="-0,0,0,0"
                    Stretch="UniformToFill"
                    MinHeight="690">
-                <Image.Source>
+                -->
+        <!--<Image.Source>
                     <BitmapImage UriSource="{x:Bind ParallaxImage}" />
-                </Image.Source>
+                </Image.Source>-->
+        <!--
             </Image>
             <animations:Implicit.ShowAnimations>
                 <animations:TranslationAnimation Duration="0:0:0.55" To="0" From="0, -150, 0"></animations:TranslationAnimation>
@@ -80,7 +115,7 @@
                 <animations:TranslationAnimation Duration="0:0:0.55" To="0, -150, 0"></animations:TranslationAnimation>
                 <animations:OpacityAnimation Duration="0:0:0.4" To="0"></animations:OpacityAnimation>
             </animations:Implicit.HideAnimations>
-        </ParallaxView>
+        </ParallaxView>-->
 
         <Image x:Name="Logo" 
                VerticalAlignment="Top" 
@@ -93,11 +128,11 @@
             </Image.Source>
         </Image>
 
-        <AutoSuggestBox x:Name="Search" Grid.Row="0" Width="296" PlaceholderText="Search episodes" Margin="0,68,24,0" QueryIcon="Find"
+        <!--<AutoSuggestBox x:Name="Search" Grid.Row="0" Width="296" PlaceholderText="Search episodes" Margin="0,68,24,0" QueryIcon="Find"
                         TextChanged="AutoSuggestBox_TextChanged"
                         SuggestionChosen="AutoSuggestBox_SuggestionChosen"
                         RequestedTheme="Light"
-                        animations:Implicit.Animations="{StaticResource LayoutImplicitAnimations}"/>
+                        animations:Implicit.Animations="{StaticResource LayoutImplicitAnimations}"/>-->
         <TextBlock Grid.Row="1" VerticalAlignment="Top" Style="{ThemeResource SubtitleTextBlockStyle}" FontWeight="Medium" Margin="24,12,0,0" Text="Recommended" />
 
         <GridView Grid.Row="1" x:Name="HomeFeedGrid" IsItemClickEnabled="True" ItemClick="HomeFeedGrid_ItemClick"
