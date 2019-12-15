@@ -222,6 +222,13 @@
   <ItemGroup>
     <Content Include="Assets\confirmed_gif.gif" />
     <Content Include="Helpers\Composition\CircleMask.png" />
+    <Content Include="Images\1.jpg" />
+    <Content Include="Images\2.jpg" />
+    <Content Include="Images\3.jpg" />
+    <Content Include="Images\4.jpg" />
+    <Content Include="Images\5.jpg" />
+    <Content Include="Images\6.jpg" />
+    <Content Include="Images\7.jpg" />
     <Content Include="Images\background.jpg" />
     <Content Include="Images\background2.jpg" />
     <Content Include="Images\background3.jpg" />

@@ -80,17 +80,64 @@ namespace MediMotion.DataModel
         private static void AddFeeds()
         {
             // Developer
-            AllFeeds.Add(new Feed(new Uri("https://s.ch9.ms/Events/Ch9Live/Windows-Community-Standup/RSS"), "Windows Community Standup  Sessions", "Sessions for Windows Community Standup", new Uri("https://sec.ch9.ms/content/feedimage.png"), "Microsoft"));
-            AllFeeds.Add(new Feed(new Uri("https://s.ch9.ms/Events/Build/2017/RSS"), "Build 2017 Sessions", "Sessions for Build 2017", new Uri("https://f.ch9.ms/thumbnail/c2635543-13a9-4082-892a-1da55baa9bce.png"), "Microsoft"));
-            AllFeeds.Add(new Feed(new Uri("https://s.ch9.ms/Feeds/RSS"), "Channel9", "Channel 9 keeps you up to date with the latest news and behind the scenes info from Microsoft that developers love to keep up with. From LINQ to SilverLight – Watch videos and hear about all the cool technologies coming and the people behind them.", new Uri("https://sec.ch9.ms/content/feedimage.png"), "Microsoft"));
-            AllFeeds.Add(new Feed(new Uri("https://channel9.msdn.com/Shows/msdevshow/feed/mp4high"), "MS Dev Show - Channel 9", "A NEW podcast for Microsoft developers covering topics such as Azure/cloud, Windows, Windows Phone, .NET, Visual Studio, and more! Hosted by Jason Young and Carl Schweitzer. Check out the full episode archive at http://msdevshow.com. ", new Uri("http://files.channel9.msdn.com/thumbnail/e35f4617-32e1-4f71-a4f3-7691de443952.png"), "Microsoft"));
-            AllFeeds.Add(new Feed(new Uri("https://s.ch9.ms/Shows/XamarinShow/feed"), "The Xamarin Show  - Channel 9", "The Xamarin Show is all about native cross-platform mobile development for iOS, Android, macOS, and Windows with Xamarin. Join your host James Montemagno and his guests as they discuss building mobiles apps, integrating SDKs, extending mobile apps, the latest Xamarin news, awesome apps developers are building, and so much more. Follow @JamesMontemagno and send him topics with #XamarinShow of what and who you would like to see on the show.", new Uri("https://f.ch9.ms/thumbnail/64fd4835-d6d3-4004-89ea-3f31b43b5dcf.png"), "Microsoft"));
-            AllFeeds.Add(new Feed(new Uri("http://feeds.twit.tv/ww_video_hd.xml"), "Windows Weekly", "A weekly look at all things Microsoft, including Windows, Windows Phone, Office, Xbox, and more, from two of the foremost Windows watchers in the world, Paul Thurrott of Thurrott.com and Mary Jo Foley of All About Microsoft.\n\nRecords live every Wednesday at 2:00pm Eastern / 11:00am Pacific/ 18:00 UTC.", new Uri("https://elroycdn.twit.tv/sites/default/files/styles/twit_album_art_2048x2048/public/images/shows/windows_weekly/album_art/sd/ww1400videohi.jpg?itok=GHeTXWKP"), "TwIT"));
-            AllFeeds.Add(new Feed(new Uri("https://channel9.msdn.com/Shows/cloud+cover/feed/mp4high"), "Microsoft Azure Cloud Cover Show (HD) - Channel 9", "Microsoft Azure Cloud Cover is your eye on the Microsoft Cloud. Join Chris Risner and Thiago Almeida as they cover Microsoft Azure, demonstrate features, discuss the latest news &amp;#43; announcements, and share tips and tricks.", new Uri("https://f.ch9.ms/thumbnail/19ef0544-3f18-4e11-8379-0326d8e493b9.png"), "Microsoft"));
-            AllFeeds.Add(new Feed(new Uri("https://channel9.msdn.com/Blogs/One-Dev-Minute/feed"), "One-Dev-minute", "These short videos - usually 1-3 minutes - give developers a quick look at different Windows technologies and how to use them to build great apps.", new Uri("https://f.ch9.ms/thumbnail/3e1f59af-78b2-41ea-adcd-30856ed4c756.png"), "Microsoft"));
-            AllFeeds.Add(new Feed(new Uri("https://channel9.msdn.com/Shows/GALs/feed/mp4high"), "GALs", "GALs is a show about the women who work in Tech (at Microsoft or outside) from three ladies that currently work on the Channel 9 team. Golnaz Alibeigi, Soumow Atitallah, and Kaitlin McKinnon have started a new series featuring women in Tech who work in development, management, marketing and research who have interesting stories to share about their success in the industry and ideas on how to grow diversity in IT.", new Uri("https://f.ch9.ms/thumbnail/37d388be-13a3-48f0-9063-5deddcec05d4.jpg"), "Microsoft"));
-            AllFeeds.Add(new Feed(new Uri("https://channel9.msdn.com/Shows/C9-goingnative/feed/mp4high"), "Going Native", "C9::GoingNative is a show dedicated to native development with an emphasis on C&amp;#43;&amp;#43; and C&amp;#43;&amp;#43; developers. Each episode will have a segment including an interview with a native dev in his/her native habitat (office) where we&#39;ll talk about what they do and how they use native code and associated toolchains, as well as get their insights and wisdom—geek out. There will be a small news component or segment, but the show will primarily focus on technical tips and conversations with active C/C&amp;#43;&amp;#43; coders, demonstrations of new core language features, libraries, compilers, toolchains, etc. We will bring in guests from around the industry for conversations, tutorials, and demos. As we progress, we will also have segments on other native languages (C, D, Go, etc...). It&#39;s all native all the time. You, our viewers, fly first class. We&#39;ll deliver what you want to see. That&#39;s how it works. Go native! ---&amp;gt; Please follow us at @C9GoingNative on Twitter!", new Uri("http://files.channel9.msdn.com/itunesimage/0593d56e-a15c-4666-b229-f2250bfdd485.png"), "Microsoft"));
-            AllFeeds.Add(new Feed(new Uri("https://s.ch9.ms/Events/Build/2016/RSS"), "Build 2016 Sessions", "Sessions for Build 2016", new Uri("http://files.channel9.msdn.com/thumbnail/dc1f8b69-a4a3-422c-b7a7-b29a9183bc79.jpg"), "Microsoft"));
+            AllFeeds.Add(
+                new Feed(
+                    new Uri("ms-appx:///Images/1.jpg"),
+                    "Sphygmomanometer",
+                    "Accoson portable aneroid sphygmomanometer range of small, light, robust yet easily portable aneroid sphygmomanometer allowing users to meet the requirements of each of your patients in almost any environment and situation.\nThe Accoson portable aneroid sphygmomanometer is designed with a clear white face with fine pointer which allows for precise indication with the scale graduations starting at zero.\nThis sphygmomanometer is designed for one handed use, being suitable for both left and right hands.\nAneroid (mechanical), devices don’t use mercury but provide accurate results when calibrated. Capable of withstanding 100% overpressure.\nThe Limpet model is designed for use in much the same way as the Duplex. However, this version is much lighter and less bulky.\nSupplied complete with a protective, soft zipper case\nRange: 0-300mmHg \nAccurate to ISO 81061-1 \nAdult Cuff Range: 24cm - 35 cm \nLarge Adult Cuff Range: 34 - 46 cm \nOutsize Adult Cuff Range: 45 - 60 cm \nChild Cuff Range: 18 - 25 cm \nQuantity: 1 \n",
+                    new Uri("ms-appx:///Images/1.jpg"), 
+                    ""));
+          
+           AllFeeds.Add(
+                new Feed(
+                    new Uri("ms-appx:///Images/2.jpg"),
+                    "CTCardiopad",
+                    "Simply touch the large 10.4 high resolution colour display to record, select and print the highest quality ECGs faster than you can imagine.\nThe Seca CTCardiopad Advanced processing, instant start - up provides immediate availability - ECG processed, interpreted and printed in less than 3 seconds ideal for a busy clinic / emergency use.\nLightweight and portable, together with the high capacity battery, allows easy transport of the Seca CTCardioPad.\nThe CTCardiopad screen is able to clearly display all 12 leads at the same time as well as having a high quality built -in thermal printer.\nEnter patient data quickly and accurately: type on touch screen or scan the bar code(optional).\nGet complete clinical information with the interpretation software.Capture and store 5 minutes of uninterrupted 12 lead data to document intermittent arrhythmias.\nHigh volume internal memory storage of up to 350 ECGs.Seca CTCardioPad can be configured to automatically print, save, transfer and retrieve a previous ECG at the touch of a button.\nFirst high end ECG to support DICOM standard.Supplied complete with mains cable, patient cable, pack of paper, 500 disposable electrodes and alligator clips.\n3 year Seca warranty and technical support helpline.\n",
+                    new Uri("ms-appx:///Images/2.jpg"), 
+                    ""));
+
+            AllFeeds.Add(
+                 new Feed(
+                     new Uri("ms-appx:///Images/3.jpg"),
+                     "Diagnostic Set",
+                     "Keeler Pocket Diagnostic Set with 2.8v Dry Cell Battery is a handy instrument set that powered by a 2.5v dry cell battery.\n The pocket diagnostic set includes a pocket ophthalmoscope head, pocket otoscope head and a handle.",
+                      new Uri("ms-appx:///Images/3.jpg"),
+                     ""));
+            AllFeeds.Add(
+                 new Feed(
+                     new Uri("ms-appx:///Images/4.jpg"),
+                     "Nebuliser",
+                     "The unique combination of the OMRON CompA.I.R Compressor with the Virtual Valve Technology (V.V.T.) means more of the aerosol is a respirable size and available to the patient to inhale.\nThe CompA.I.R nebuliser has V.V.T. nebuliser technology and an energy efficient system with water-protected switch.\nFor effective intake, the nebuliser comes in a handy shape chamber and easy to attach and detach tube connectors.\nThe V.V.T.'s unique design means there are fewer parts to lose and fewer parts to clean. Higher hygiene and easier maintenance results.\nWhen not in use, the Nebuliser Kit rests on a hold on the main compressor unit.\nThe OMRON CompA.I.R Compressor comes with a convenient holder for nebuliser kit and a handy carry bag.",
+                     new Uri("ms-appx:///Images/4.jpg"),
+                     ""));
+
+            AllFeeds.Add(
+                 new Feed(
+                     new Uri("ms-appx:///Images/5.jpg"),
+                     "Respiratory Monitor",
+                     "The Vitalograph Lung Age is a motivational tool for smoking intervention by healthcare professionals.\nQuick and simple to use, the Lung Age interprets lung age to help illustrate the impact of smoking on the subject?s lungs.\nThe Lung Age measures FEV and displays as a percentage of predicted values with colour zones that indicate abnormality level.\nThe Vitalograph Lung Age is made with an easy to clean flowhead and can be used with hygienic SafeTway mouthpieces.\n",
+                     new Uri("ms-appx:///Images/5.jpg"),
+                     ""));
+
+            AllFeeds.Add(
+                 new Feed(
+                     new Uri("ms-appx:///Images/6.jpg"),
+                     "Finger pulse oximeter",
+                     "Nonin Medical's Onyx Vantage 9590 finger pulse oximeter with PureSAT technology quickly and accurately captures SpO2 and pulse rate measurements, even on patients where motion and low perfusion are a challenge.\nThe Onyx Vantage 9590 finger pulse oximeter has a scientifically proven performance in the widest range of patient populations and settings as well as versatile with one unit works on the widest range of patients from paediatric to larger adult patients.\nEfficiency and cost effectiveness make the Onyx Vantage 9590 a good buy as it can perform up to 6,000 spot checks on two AAA batteries and durable as it is protected against dropping (withstand a minimum of 50 drops) and water spills (exceeds IP32 water ingress testing).\nNonin Onyx Vantage 9590 finger pulse oximeter comes with an industry leading 4 year warranty\nThe finger pulse oximeter is supplied with a soft carry case for safe transportation.",
+                     new Uri("ms-appx:///Images/6.jpg"),
+                     ""));
+
+            AllFeeds.Add(
+                 new Feed(
+                     new Uri("ms-appx:///Images/7.jpg"),
+                     "Blood pressure monitor",
+                     "The Omron 907 Blood Pressure Monitor is a digital automatic upper arm model for professional clinical use.\n It is versatile in use from fully automatic operation to manual deflation control.\n Oscillometric and auscultatory use is combined in one unit. Using Intellisense technology, the Omron 907 is designed to supply a programmable average of multiple measurements, based on three successive readings.\n White coat hypertension can be reduced or avoided by the 'hide' display function. Clinically validated (International Protocol) the Omron 907 blood pressure monitor is supplied with rechargeable batteries and adapter.\n",
+                      new Uri("ms-appx:///Images/7.jpg"),
+                     ""));
+        
+
+
+
         }
     }
 }

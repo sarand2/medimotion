@@ -66,28 +66,37 @@
         </Grid.RowDefinitions>
         <ContentPresenter
                 x:Name="DetailContentPresenter"
-                Margin="0,0,0,310"
+                Margin="00,0,0,310"
                 Grid.Row="0"
                 MinHeight="690"
                 BorderThickness="1,0,0,0"
+                MinWidth="1450"
+                MaxWidth="1450"
                 BorderBrush="{ThemeResource SystemControlForegroundBaseLowBrush}"
                 Content="{x:Bind HomeFeedGrid.SelectedItem, Mode=OneWay}" Grid.RowSpan="2">
             <ContentPresenter.ContentTemplate>
                 <DataTemplate x:DataType="datamodel:Feed">
-                    <StackPanel>
+                    <StackPanel Margin="10,0,0,0">
                         <TextBlock Style="{ThemeResource TitleTextBlockStyle}"
                                    Margin="0,8"       
-                                   Text="{x:Bind Title}"/>
+                                   Text="{x:Bind Title}"
+                                   />
                         <TextBlock Style="{ThemeResource BodyTextBlockStyle}"
                                    Margin="0,9" 
                                    Text="{x:Bind Author}" />
-                        <TextBlock Style="{ThemeResource BodyTextBlockStyle}" 
-                                   Margin="0,9" 
-                                   Text="{x:Bind Uri}" />
+                        <Image x:Name="Image" 
+                                   HorizontalAlignment="Left"
+                                   Stretch="UniformToFill" Height="250" Width="250">
+                            <Image.Source>
+                                <BitmapImage UriSource="{x:Bind ImageUri}">
+                                </BitmapImage>
+                            </Image.Source>
+                        </Image>
                         <TextBlock Style="{ThemeResource BodyTextBlockStyle}" 
                                    Margin="0,9" 
                                    TextWrapping="WrapWholeWords"
-                                   Text="{x:Bind Description}" />
+                                   Text="{x:Bind Description}"
+                                   FontSize="12"/>
                     </StackPanel>
                 </DataTemplate>
             </ContentPresenter.ContentTemplate>
@@ -133,7 +142,7 @@
                         SuggestionChosen="AutoSuggestBox_SuggestionChosen"
                         RequestedTheme="Light"
                         animations:Implicit.Animations="{StaticResource LayoutImplicitAnimations}"/>-->
-        <TextBlock Grid.Row="1" VerticalAlignment="Top" Style="{ThemeResource SubtitleTextBlockStyle}" FontWeight="Medium" Margin="24,12,0,0" Text="Recommended" />
+        <TextBlock Grid.Row="1" VerticalAlignment="Top" Style="{ThemeResource SubtitleTextBlockStyle}" FontWeight="Medium" Margin="24,12,0,0" Text="Hardware list" />
 
         <GridView Grid.Row="1" x:Name="HomeFeedGrid" IsItemClickEnabled="True" ItemClick="HomeFeedGrid_ItemClick"
                   
@@ -172,7 +181,7 @@
                             </Image.Source>
                         </Image>
                         <StackPanel VerticalAlignment="Bottom" Grid.Row="1" Margin="5,0,5,0" Width="180">
-                            <TextBlock Text="{x:Bind Title}" FontWeight="Medium" 
+                            <TextBlock Text="{x:Bind Title}" FontWeight="Normal" FontSize="14"
                                        Style="{ThemeResource BodyTextBlockStyle}" TextWrapping="NoWrap"
                                        HorizontalAlignment="Left" />
                             <TextBlock Text="{x:Bind Author}"  />
