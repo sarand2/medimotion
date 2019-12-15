@@ -132,6 +132,31 @@
     <Compile Include="Controls\Timeline\TimelineItem.cs" />
     <Compile Include="Controls\Timeline\TimelineItemInvokedEventArgs.cs" />
     <Compile Include="Controls\Timeline\TimelinePanel.cs" />
+    <Compile Include="DataModel\Episode.cs" />
+    <Compile Include="DataModel\EpisodePlaybackState.cs" />
+    <Compile Include="DataModel\EpisodeWithState.cs" />
+    <Compile Include="DataModel\Favorite.cs" />
+    <Compile Include="DataModel\Feed.cs" />
+    <Compile Include="DataModel\FeedStore.cs" />
+    <Compile Include="DataModel\Helpers\AsyncHelpers.cs" />
+    <Compile Include="DataModel\Helpers\BackgroundDownloadHelper.cs" />
+    <Compile Include="DataModel\Helpers\BufferingVisualManager.cs" />
+    <Compile Include="DataModel\Helpers\DateTimeHelper.cs" />
+    <Compile Include="DataModel\Helpers\EnumToBooleanConverter.cs" />
+    <Compile Include="DataModel\Helpers\EpisodeCommands.cs" />
+    <Compile Include="DataModel\Helpers\Json.cs" />
+    <Compile Include="DataModel\Helpers\LinqExtensions.cs" />
+    <Compile Include="DataModel\Helpers\NavigationAnimationHelpers.cs" />
+    <Compile Include="DataModel\Helpers\RelayCommand.cs" />
+    <Compile Include="DataModel\Helpers\SettingsStorageExtensions.cs" />
+    <Compile Include="DataModel\Helpers\TitleBarHelper.cs" />
+    <Compile Include="DataModel\Helpers\UIHelpers.cs" />
+    <Compile Include="DataModel\Helpers\ValueSetHelper.cs" />
+    <Compile Include="DataModel\Helpers\VisualHelpers.cs" />
+    <Compile Include="DataModel\InkNote.cs" />
+    <Compile Include="DataModel\InkNoteData.cs" />
+    <Compile Include="DataModel\LocalStorageContext.cs" />
+    <Compile Include="DataModel\NowPlayingState.cs" />
     <Compile Include="Data\NewsItem.cs" />
     <Compile Include="Helpers\AnimationExtensions.News.cs" />
     <Compile Include="Helpers\Composition\CompositionImage.cs" />
@@ -170,6 +195,22 @@
     <Compile Include="Scenarios\ModernListItem.xaml.cs">
       <DependentUpon>ModernListItem.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Scenarios\TilePage.xaml.cs">
+      <DependentUpon>TilePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Services\IAvailableSystemsObserver.cs" />
+    <Compile Include="Services\IFullscreenPage.cs" />
+    <Compile Include="Services\IPlayerService.cs" />
+    <Compile Include="Services\IRemoteConnection.cs" />
+    <Compile Include="Services\IRemotePlayerService.cs" />
+    <Compile Include="Services\IRemoteSystemDescription.cs" />
+    <Compile Include="Services\Navigation\FrameAdapter.cs" />
+    <Compile Include="Services\Navigation\IFrameAdapter.cs" />
+    <Compile Include="Services\Navigation\INavigableTo.cs" />
+    <Compile Include="Services\Navigation\INavigationCommand.cs" />
+    <Compile Include="Services\Navigation\INavigationService.cs" />
+    <Compile Include="Services\Navigation\IPageWithViewModel.cs" />
+    <Compile Include="Services\ThemeSelectorService.cs" />
     <Compile Include="Utilites\AnimationExtensions.cs" />
     <Compile Include="Utilites\CustomDataObject.cs" />
   </ItemGroup>
@@ -287,14 +328,33 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Scenarios\TilePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Styles\Styles.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
+    <None Include="app.manifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite">
+      <Version>2.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools">
+      <Version>2.0.0</Version>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.9</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Toolkit.Uwp.Notifications">
+      <Version>2.1.0</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Toolkit.Uwp.UI.Controls">
       <Version>6.0.0</Version>
@@ -306,10 +366,7 @@
       <Version>2.3.191129002</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-    <None Include="app.manifest" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
