@@ -109,7 +109,7 @@
             <Border CornerRadius="30,0,30,0">
                 <Button Height="116" Width="320" Click="Button_Click" Content="MediMotion" FontSize="40"  FontStyle="Italic" FontWeight="SemiBold" CornerRadius="30,0,0,0" FontFamily="Segoe UI"/>
             </Border>
-            <SearchBox Opacity="0.8" Margin="20, 10,0,0" x:Name="mySearchBox" CornerRadius="0,30,30,0"  FocusOnKeyboardInput="True" QuerySubmitted="mySearchBox_QuerySubmitted"  FocusVisualPrimaryBrush="Black" Background="#CCFFFFFF"  FocusVisualSecondaryBrush="#99FFFFFF" RequestedTheme="Dark" Height="41" Width="405"/>
+            <SearchBox Opacity="0.8" Margin="20, 10,0,0" x:Name="mySearchBox" CornerRadius="0,30,30,0"  FocusOnKeyboardInput="True" QuerySubmitted="mySearchBox_QuerySubmitted"  FocusVisualPrimaryBrush="Black" Background="#CCFFFFFF"  FocusVisualSecondaryBrush="#99FFFFFF" RequestedTheme="Light" Height="41" Width="405"/>
             <controls:DockPanel LastChildFill="False" Margin="0" VerticalAlignment="Center" >
                 <Button x:Name="signOutButton" controls:DockPanel.Dock="Right" Click="SignOut_Click" Height="80" FontSize="38"  CornerRadius="30,30,30,30" Content="Sign out" Width="220" Margin="10,0,0,0" HorizontalAlignment="Right"/>
                 <Button  CornerRadius="20" x:Name="avatarButton" controls:DockPanel.Dock="Right" Height="120" Width="120"  Margin="0,0,0,0" Background="Transparent" Click="Avatar_Click" HorizontalContentAlignment="Right">

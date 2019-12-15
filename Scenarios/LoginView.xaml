@@ -31,7 +31,7 @@
                 <Image Source="ms-appx:///Images/medical_modern.jpg"  Stretch="UniformToFill" HorizontalAlignment="Center" VerticalAlignment="Top" Opacity="0.9" />
             </Border>
 
-            <TextBox Grid.RowSpan="2" GotFocus="OnBackgroundFocus" Opacity="0" />
+            <TextBox Grid.RowSpan="2" GotFocus="OnBackgroundFocus" Opacity="0" Visibility="Visible" />
 
             <Grid>
                 <Grid.RowDefinitions>
@@ -66,7 +66,7 @@
                 </StackPanel>
             </Grid>
 
-            <Grid Grid.Row="1" Grid.RowSpan="2" IsHitTestVisible="False" Background="{StaticResource CustomAcrylicInAppBrush}">
+            <Grid Grid.Row="1" Grid.RowSpan="2" IsHitTestVisible="False" >
                 <Grid.RowDefinitions>
                     <RowDefinition Height="2*"/>
                     <RowDefinition Height="0.3*"/>
