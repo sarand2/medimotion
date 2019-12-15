@@ -38,7 +38,7 @@
         Description="MediMotion"
         BackgroundColor="transparent">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
-        <uap:SplashScreen Image="Images\splash.png" BackgroundColor="#00b2f0"/>
+        <uap:SplashScreen Image="Images\splash.png" BackgroundColor="#202124"/>
       </uap:VisualElements>
     </Application>
   </Applications>

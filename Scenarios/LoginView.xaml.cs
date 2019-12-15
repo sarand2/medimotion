@@ -219,5 +219,10 @@ namespace MediMotion.Scenarios
            // await System.Threading.Tasks.Task.Run(() => ProgressRingUpdate());
             await UpdateLock();
         }
+
+        private async void Close_click(object sender, RoutedEventArgs e)
+        {
+            Environment.Exit(0);
+        }
     }
 }

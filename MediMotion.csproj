@@ -122,7 +122,6 @@
     <Compile Include="Controllers\DetailsPage.xaml.cs" />
     <Compile Include="Controllers\Reference.cs" />
     <Compile Include="Controllers\Home.xaml.cs" />
-    <Compile Include="Controllers\Login.xaml.cs" />
     <Compile Include="Controllers\Pharmaceuticals.cs" />
     <Compile Include="Controllers\Patients.xaml.cs" />
     <Compile Include="Controls\FocusableItem.cs" />
@@ -269,10 +268,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Scenarios\Reference.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Scenarios\Login.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

@@ -189,7 +189,7 @@ namespace MediMotion
         private void SignOut_Click(object sender, RoutedEventArgs e)
         {
             Frame rootFrame = Window.Current.Content as Frame;
-            rootFrame.Navigate(typeof(Login));
+            rootFrame.Navigate(typeof(LoginView));
         }
 
         private void Avatar_Click(object sender, RoutedEventArgs e)
