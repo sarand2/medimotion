@@ -183,7 +183,7 @@ namespace MediMotion
         }
         private void Hardware_Click(object sender, RoutedEventArgs e)
         {
-            ScenarioFrame.Navigate(typeof(HardwareList));
+            ScenarioFrame.Navigate(typeof(TilePage));
         }
 
         private void SignOut_Click(object sender, RoutedEventArgs e)
