@@ -32,6 +32,7 @@ namespace MediMotion
             this.InitializeComponent();
             this.Suspending += OnSuspending;
             this.FocusVisualKind = FocusVisualKind.Reveal;
+            Application.Current.RequiresPointerMode = ApplicationRequiresPointerMode.WhenRequested;
         }
 
         /// <summary>

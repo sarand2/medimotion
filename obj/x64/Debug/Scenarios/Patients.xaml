@@ -18,33 +18,18 @@
     xmlns:local="using:MediMotion"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
-    
-  
-    
+    mc:Ignorable="d"
+    MinWidth="3000">
+
     <Page.Transitions>
         <TransitionCollection>
             <EntranceThemeTransition />
         </TransitionCollection>
     </Page.Transitions>
-
-    <Page.BottomAppBar>
-        <CommandBar>
-            <AppBarButton x:ConnectionId='2' x:Name="SelectItmesBtn" FontFamily="OverflowCheckGlyph" Label="Select Items"                    >
-                <AppBarButton.Icon>
-                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xe762;" />
-                </AppBarButton.Icon>
-            </AppBarButton>
-            <AppBarButton x:ConnectionId='3' x:Name="AddItemBtn" Label="Add Item" Icon="Add"                 />
-            <AppBarButton x:ConnectionId='4' x:Name="DeleteItemBtn" Label="Delete Item" Icon="Delete"                    />
-            <AppBarButton x:ConnectionId='5' x:Name="DeleteItemsBtn" Label="Delete Items" Icon="Delete"                     />
-            <AppBarButton x:ConnectionId='6' x:Name="CancelSelectionBtn" Label="Cancel" Icon="Cancel"                         />
-        </CommandBar>
-    </Page.BottomAppBar>
     <Page.Resources>
         <!-- When using x:Bind, you need to set x:DataType -->
-        <DataTemplate x:ConnectionId='7' x:Name="ContactListViewTemplate"                          >
-            <Grid x:ConnectionId='8'>
+        <DataTemplate x:ConnectionId='2' x:Name="ContactListViewTemplate"                          >
+            <Grid x:ConnectionId='3'>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
@@ -61,12 +46,12 @@
                          VerticalAlignment="Center"
                          HorizontalAlignment="Center"
                          Fill="LightGray"/>
-                <TextBlock x:ConnectionId='10' Grid.Column="1"
+                <TextBlock x:ConnectionId='5' Grid.Column="1"
                                                 
                                         
                            Style="{ThemeResource BaseTextBlockStyle}"
                            Margin="12,6,0,0"/>
-                <TextBlock x:ConnectionId='11'  Grid.Column="1"
+                <TextBlock x:ConnectionId='6'  Grid.Column="1"
                             Grid.Row="1"
                                                      
                                        
@@ -87,10 +72,10 @@
         </Grid.ColumnDefinitions>
 
         <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup x:ConnectionId='12' x:Name="PageSizeStatesGroup"
+            <VisualStateGroup x:ConnectionId='7' x:Name="PageSizeStatesGroup"
                                                                          >
 
-                <VisualState x:ConnectionId='18' x:Name="WideState">
+                <VisualState x:ConnectionId='13' x:Name="WideState">
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="720"  />
                     </VisualState.StateTriggers>
@@ -102,7 +87,7 @@
                     </VisualState.Setters>
                 </VisualState>
 
-                <VisualState x:ConnectionId='19' x:Name="NarrowState">
+                <VisualState x:ConnectionId='14' x:Name="NarrowState">
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="0"  />
                     </VisualState.StateTriggers>
@@ -112,25 +97,25 @@
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
-            <VisualStateGroup x:ConnectionId='13' x:Name="MasterDetailsStatesGroup">
+            <VisualStateGroup x:ConnectionId='8' x:Name="MasterDetailsStatesGroup">
 
-                <VisualState x:ConnectionId='14' x:Name="MasterState">
+                <VisualState x:ConnectionId='9' x:Name="MasterState">
                     <VisualState.Setters>
                         <Setter Target="MasterListView.SelectionMode" Value="None" />
                         <Setter Target="MasterListView.IsItemClickEnabled" Value="True" />
                     </VisualState.Setters>
                 </VisualState>
-                <VisualState x:ConnectionId='15' x:Name="MasterDetailsState">
+                <VisualState x:ConnectionId='10' x:Name="MasterDetailsState">
                     <VisualState.Setters>
                         <Setter Target="MasterListView.SelectionMode" Value="Extended" />
                         <Setter Target="MasterListView.IsItemClickEnabled" Value="False" />
                     </VisualState.Setters>
                 </VisualState>
-                <VisualState x:ConnectionId='16' x:Name="ExtendedSelectionState">
+                <VisualState x:ConnectionId='11' x:Name="ExtendedSelectionState">
                     <VisualState.Setters>
                     </VisualState.Setters>
                 </VisualState>
-                <VisualState x:ConnectionId='17' x:Name="MultipleSelectionState">
+                <VisualState x:ConnectionId='12' x:Name="MultipleSelectionState">
                     <VisualState.Setters>
                         <Setter Target="MasterListView.SelectionMode" Value="Multiple" />
                         <Setter Target="MasterListView.IsItemClickEnabled" Value="False" />
@@ -148,8 +133,8 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition x:ConnectionId='20' x:Name="MasterColumn" Width="320"  />
-                <ColumnDefinition x:ConnectionId='21' x:Name="DetailColumn" Width="*" />
+                <ColumnDefinition x:ConnectionId='15' x:Name="MasterColumn" Width="320"  />
+                <ColumnDefinition x:ConnectionId='16' x:Name="DetailColumn" Width="*" />
             </Grid.ColumnDefinitions>
 
             <Border Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}">
@@ -157,7 +142,7 @@
                            Style="{ThemeResource TitleTextBlockStyle}" />
             </Border>
 
-            <ListView x:ConnectionId='22' x:Name="MasterListView" 
+            <ListView x:ConnectionId='17' x:Name="MasterListView" 
                   SelectionMode="Extended"
                                                        
                   IsItemClickEnabled="True"
@@ -172,7 +157,7 @@
                 </ListView.ItemContainerStyle>
             </ListView>
 
-            <ContentPresenter x:ConnectionId='23'
+            <ContentPresenter x:ConnectionId='18'
                 x:Name="DetailContentPresenter"
                 Grid.Column="1"
                 Grid.RowSpan="2"
@@ -182,17 +167,17 @@
                                                                            >
                 <ContentPresenter.ContentTemplate>
                     <DataTemplate                          >
-                        <StackPanel x:ConnectionId='25'>
-                            <TextBlock x:ConnectionId='26' Style="{ThemeResource TitleTextBlockStyle}"
+                        <StackPanel x:ConnectionId='20'>
+                            <TextBlock x:ConnectionId='21' Style="{ThemeResource TitleTextBlockStyle}"
                                    Margin="0,8"       
                                                        />
-                            <TextBlock x:ConnectionId='27' Style="{ThemeResource BodyTextBlockStyle}"
+                            <TextBlock x:ConnectionId='22' Style="{ThemeResource BodyTextBlockStyle}"
                                    Margin="0,9" 
                                                             />
-                            <TextBlock x:ConnectionId='28' Style="{ThemeResource BodyTextBlockStyle}" 
+                            <TextBlock x:ConnectionId='23' Style="{ThemeResource BodyTextBlockStyle}" 
                                    Margin="0,9" 
                                                                />
-                            <TextBlock x:ConnectionId='29' Style="{ThemeResource BodyTextBlockStyle}" 
+                            <TextBlock x:ConnectionId='24' Style="{ThemeResource BodyTextBlockStyle}" 
                                    Margin="0,9" 
                                    TextWrapping="WrapWholeWords"
                                                              />

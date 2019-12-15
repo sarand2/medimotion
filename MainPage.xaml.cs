@@ -179,7 +179,7 @@ namespace MediMotion
         }
         private void Procedures_Click(object sender, RoutedEventArgs e)
         {
-            ScenarioFrame.Navigate(scenarios[4].ClassType);
+            ScenarioFrame.Navigate(typeof(ModernList));
         }
         private void Hardware_Click(object sender, RoutedEventArgs e)
         {

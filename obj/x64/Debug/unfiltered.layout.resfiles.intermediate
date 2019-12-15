@@ -8,6 +8,8 @@ Assets\Square44x44Logo.targetsize-24_altform-unplated.png
 Assets\StoreLogo.png
 Assets\Wide310x150Logo.scale-200.png
 App.xbf
+Controls\TimelineItemUserControl\TimelineStory.xbf
+Helpers\Composition\CompositionShadow.xbf
 MainPage.xbf
 MediMotion.xr.xml
 Scenarios\AuthentificationMessage.xbf
@@ -17,10 +19,13 @@ Scenarios\HardwareList.xbf
 Scenarios\Home.xbf
 Scenarios\Login.xbf
 Scenarios\LoginView.xbf
+Scenarios\ModernList.xbf
+Scenarios\ModernListItem.xbf
 Scenarios\Patients.xbf
 Scenarios\Pharmaceuticals.xbf
 Scenarios\Reference.xbf
 Styles\Styles.xbf
+Helpers\Composition\CircleMask.png
 Images\background.jpg
 Images\background_blur.png
 Images\background2.jpg

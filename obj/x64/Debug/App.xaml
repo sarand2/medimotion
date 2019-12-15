@@ -2,7 +2,99 @@
     x:Class="MediMotion.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:MediMotion">
+    xmlns:local="using:MediMotion"
+    xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations">
+
+
+    <Application.Resources>
+        <ResourceDictionary>
+        <Style x:Key="NavListStyle" TargetType="ListViewItem">
+            <Setter Property="FontFamily" Value="{ThemeResource ContentControlThemeFontFamily}"/>
+            <Setter Property="FontSize" Value="{ThemeResource ControlContentThemeFontSize}"/>
+            <Setter Property="Background" Value="{ThemeResource ListViewItemBackground}"/>
+            <Setter Property="Foreground" Value="Gray"/>
+            <Setter Property="TabNavigation" Value="Local"/>
+            <Setter Property="IsHoldingEnabled" Value="True"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="MinWidth" Value="{ThemeResource ListViewItemMinWidth}"/>
+            <Setter Property="MinHeight" Value="0"/>
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="AllowDrop" Value="False"/>
+            <Setter Property="UseSystemFocusVisuals" Value="True"/>
+            <Setter Property="FocusVisualMargin" Value="-3"/>
+            <Setter Property="FocusVisualPrimaryBrush" Value="#80FFFFFF"/>
+            <Setter Property="FocusVisualPrimaryThickness" Value="2"/>
+            <Setter Property="FocusVisualSecondaryBrush" Value="#0A0A0A0A"/>
+            <Setter Property="FocusVisualSecondaryThickness" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListViewItem">
+                        <ListViewItemPresenter CheckBrush="{ThemeResource ListViewItemCheckBrush}" 
+                                               ContentMargin="{TemplateBinding Padding}" 
+                                               CheckMode="{ThemeResource ListViewItemCheckMode}" 
+                                               ContentTransitions="{TemplateBinding ContentTransitions}" 
+                                               CheckBoxBrush="{ThemeResource ListViewItemCheckBoxBrush}" 
+                                               DragForeground="{ThemeResource ListViewItemDragForeground}" 
+                                               DragOpacity="{ThemeResource ListViewItemDragThemeOpacity}" 
+                                               DragBackground="{ThemeResource ListViewItemDragBackground}" 
+                                               DisabledOpacity="{ThemeResource ListViewItemDisabledThemeOpacity}" 
+                                               FocusBorderBrush="{ThemeResource ListViewItemFocusBorderBrush}" 
+                                               FocusSecondaryBorderBrush="{ThemeResource ListViewItemFocusSecondaryBorderBrush}" 
+                                               HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                               Control.IsTemplateFocusTarget="True" 
+                                               PointerOverForeground="{ThemeResource ListViewItemForegroundPointerOver}" 
+                                               PressedBackground="{ThemeResource ListViewItemBackgroundPressed}" 
+                                               PlaceholderBackground="{ThemeResource ListViewItemPlaceholderBackground}" 
+                                               PointerOverBackground="{ThemeResource ListViewItemBackgroundPointerOver}" 
+                                               ReorderHintOffset="{ThemeResource ListViewItemReorderHintThemeOffset}" 
+                                               SelectedPressedBackground="{ThemeResource ListViewItemBackgroundSelectedPressed}" 
+                                               SelectionCheckMarkVisualEnabled="{ThemeResource ListViewItemSelectionCheckMarkVisualEnabled}" 
+                                               SelectedForeground="White" 
+                                               SelectedPointerOverBackground="{ThemeResource ListViewItemBackgroundSelectedPointerOver}" 
+                                               VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <animations:AnimationCollection x:Key="LayoutImplicitAnimations">
+            <animations:OffsetAnimation Duration="0:0:0.1"></animations:OffsetAnimation>
+        </animations:AnimationCollection>
+
+        <animations:AnimationCollection x:Key="DefaultShowAnimations">
+            <animations:TranslationAnimation Duration="0:0:0.35" From="0,-450, 0" To="0"></animations:TranslationAnimation>
+        </animations:AnimationCollection>
+
+        <animations:AnimationCollection x:Key="DefaultHideAnimations">
+            <animations:TranslationAnimation Duration="0:0:0.45" To="0,-30,0"></animations:TranslationAnimation>
+        </animations:AnimationCollection>
+
+        <animations:AnimationCollection x:Key="DefaultListShowAnimations">
+            <animations:TranslationAnimation Duration="0:0:0.45" Delay="0:0:0.2" From="0,50,0" To="0"></animations:TranslationAnimation>
+            <animations:OpacityAnimation Duration="0:0:0.8" From="0" To="1">
+                <animations:ScalarKeyFrame Key="0.25" Value="0"></animations:ScalarKeyFrame>
+            </animations:OpacityAnimation>
+        </animations:AnimationCollection>
+
+        <animations:AnimationCollection x:Key="DefaultListHideAnimations">
+            <animations:TranslationAnimation Duration="0:0:0.4" To="0,50,0"></animations:TranslationAnimation>
+            <animations:OpacityAnimation Duration="0:0:0.4" To="0"></animations:OpacityAnimation>
+        </animations:AnimationCollection>
+
+        <animations:AnimationCollection x:Key="DefaultPageHideAnimation">
+            <animations:OpacityAnimation Duration="0:0:0.4" To="0"></animations:OpacityAnimation>
+        </animations:AnimationCollection>
+
+        <animations:AnimationCollection x:Key="DefaultTitleShowAnimations">
+            <animations:TranslationAnimation Duration="0:0:0.45" From="0, -50, 0" To="0"></animations:TranslationAnimation>
+            <animations:OpacityAnimation Duration="0:0:0.5" From="0" To="1">
+                <animations:ScalarKeyFrame Key="0.25" Value="0"></animations:ScalarKeyFrame>
+            </animations:OpacityAnimation>
+        </animations:AnimationCollection>
+        </ResourceDictionary>
+    </Application.Resources>
 
 </Application>
 

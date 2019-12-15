@@ -18,7 +18,6 @@
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WindowsXamlEnableOverview>true</WindowsXamlEnableOverview>
     <AppxPackageSigningEnabled>false</AppxPackageSigningEnabled>
-
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -126,6 +125,26 @@
     <Compile Include="Controllers\Login.xaml.cs" />
     <Compile Include="Controllers\Pharmaceuticals.cs" />
     <Compile Include="Controllers\Patients.xaml.cs" />
+    <Compile Include="Controls\FocusableItem.cs" />
+    <Compile Include="Controls\TimelineItemUserControl\TimelineStory.xaml.cs">
+      <DependentUpon>TimelineStory.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Timeline\Timeline.cs" />
+    <Compile Include="Controls\Timeline\TimelineItem.cs" />
+    <Compile Include="Controls\Timeline\TimelineItemInvokedEventArgs.cs" />
+    <Compile Include="Controls\Timeline\TimelinePanel.cs" />
+    <Compile Include="Data\NewsItem.cs" />
+    <Compile Include="Helpers\AnimationExtensions.News.cs" />
+    <Compile Include="Helpers\Composition\CompositionImage.cs" />
+    <Compile Include="Helpers\Composition\CompositionShadow.xaml.cs">
+      <DependentUpon>CompositionShadow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\Composition\ImageLoader\ImageLoader.cs" />
+    <Compile Include="Helpers\Composition\ImageLoader\ManagedSurface.cs" />
+    <Compile Include="Helpers\Composition\SurfaceLoader.cs" />
+    <Compile Include="Helpers\DeviceFamilyStateTrigger.cs" />
+    <Compile Include="Helpers\Helpers.cs" />
+    <Compile Include="Helpers\StoryTemplateSelector.cs" />
     <Compile Include="MainPage.xaml.cs" />
     <Compile Include="Model\ActivePatient.cs" />
     <Compile Include="Model\GroupInfoList.cs" />
@@ -146,6 +165,12 @@
     <Compile Include="Scenarios\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Scenarios\ModernList.xaml.cs">
+      <DependentUpon>ModernList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Scenarios\ModernListItem.xaml.cs">
+      <DependentUpon>ModernListItem.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Utilites\AnimationExtensions.cs" />
     <Compile Include="Utilites\CustomDataObject.cs" />
   </ItemGroup>
@@ -156,6 +181,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\confirmed_gif.gif" />
+    <Content Include="Helpers\Composition\CircleMask.png" />
     <Content Include="Images\background.jpg" />
     <Content Include="Images\background2.jpg" />
     <Content Include="Images\background3.jpg" />
@@ -206,6 +232,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Controls\TimelineItemUserControl\TimelineStory.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Helpers\Composition\CompositionShadow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -223,6 +257,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Scenarios\LoginView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Scenarios\ModernList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Scenarios\ModernListItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

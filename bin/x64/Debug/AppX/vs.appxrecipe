@@ -30,13 +30,13 @@
     <AppXManifest Include="C:\Users\PC\Desktop\ZKS projektas\medimotion\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2019-12-10T21:29:09.153</Modified>
+      <Modified>2019-12-15T11:47:19.624</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\PC\Desktop\ZKS projektas\medimotion\bin\x64\Debug\MediMotion.exe">
       <PackagePath>entrypoint\MediMotion.exe</PackagePath>
-      <Modified>2019-12-10T21:28:32.049</Modified>
+      <Modified>2019-12-15T11:47:18.270</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\PC\Desktop\ZKS projektas\medimotion\bin\x64\Debug\MediMotion.exe.config">
       <PackagePath>MediMotion.exe.config</PackagePath>
@@ -122,29 +122,9 @@
       <PackagePath>Images\voice_reco.gif</PackagePath>
       <Modified>2019-12-10T01:06:14.838</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\PC\Desktop\ZKS projektas\medimotion\Images\background.jpg">
-      <PackagePath>Images\background.jpg</PackagePath>
-      <Modified>2019-12-09T17:54:19.586</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\PC\Desktop\ZKS projektas\medimotion\Images\background2.jpg">
-      <PackagePath>Images\background2.jpg</PackagePath>
-      <Modified>2019-12-09T18:07:17.843</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\PC\Desktop\ZKS projektas\medimotion\Images\background3.jpg">
-      <PackagePath>Images\background3.jpg</PackagePath>
-      <Modified>2019-12-09T18:13:35.510</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\PC\Desktop\ZKS projektas\medimotion\Images\medical_logo.jpg">
-      <PackagePath>Images\medical_logo.jpg</PackagePath>
-      <Modified>2019-12-09T22:55:28.342</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\PC\Desktop\ZKS projektas\medimotion\Images\medical_modern.jpg">
-      <PackagePath>Images\medical_modern.jpg</PackagePath>
-      <Modified>2019-12-10T10:49:22.755</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\PC\Desktop\ZKS projektas\medimotion\Images\procedures_modern.jpg">
-      <PackagePath>Images\procedures_modern.jpg</PackagePath>
-      <Modified>2019-12-09T20:26:15.819</Modified>
+    <AppxPackagedFile Include="C:\Users\PC\Desktop\ZKS projektas\medimotion\Helpers\Composition\CircleMask.png">
+      <PackagePath>Helpers\Composition\CircleMask.png</PackagePath>
+      <Modified>2019-12-15T10:38:34.733</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\PC\Desktop\ZKS projektas\medimotion\Images\background_blur.png">
       <PackagePath>Images\background_blur.png</PackagePath>
@@ -264,65 +244,105 @@
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2019-12-09T16:11:46.376</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\PC\Desktop\ZKS projektas\medimotion\Images\background.jpg">
+      <PackagePath>Images\background.jpg</PackagePath>
+      <Modified>2019-12-09T17:54:19.586</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\PC\Desktop\ZKS projektas\medimotion\Images\background2.jpg">
+      <PackagePath>Images\background2.jpg</PackagePath>
+      <Modified>2019-12-09T18:07:17.843</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\PC\Desktop\ZKS projektas\medimotion\Images\background3.jpg">
+      <PackagePath>Images\background3.jpg</PackagePath>
+      <Modified>2019-12-09T18:13:35.510</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\PC\Desktop\ZKS projektas\medimotion\Images\medical_logo.jpg">
+      <PackagePath>Images\medical_logo.jpg</PackagePath>
+      <Modified>2019-12-09T22:55:28.342</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\PC\Desktop\ZKS projektas\medimotion\Images\medical_modern.jpg">
+      <PackagePath>Images\medical_modern.jpg</PackagePath>
+      <Modified>2019-12-10T10:49:22.755</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\PC\Desktop\ZKS projektas\medimotion\Images\procedures_modern.jpg">
+      <PackagePath>Images\procedures_modern.jpg</PackagePath>
+      <Modified>2019-12-09T20:26:15.819</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\PC\Desktop\ZKS projektas\medimotion\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
       <Modified>2019-12-09T16:11:46.407</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\PC\Desktop\ZKS projektas\medimotion\bin\x64\Debug\MediMotion.xr.xml">
       <PackagePath>MediMotion.xr.xml</PackagePath>
-      <Modified>2019-12-10T20:41:03.124</Modified>
+      <Modified>2019-12-15T11:47:17.864</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\PC\Desktop\ZKS projektas\medimotion\bin\x64\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2019-12-10T21:29:08.014</Modified>
+      <Modified>2019-12-15T11:47:17.910</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\PC\Desktop\ZKS projektas\medimotion\bin\x64\Debug\Controls\TimelineItemUserControl\TimelineStory.xbf">
+      <PackagePath>Controls\TimelineItemUserControl\TimelineStory.xbf</PackagePath>
+      <Modified>2019-12-15T11:47:17.951</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\PC\Desktop\ZKS projektas\medimotion\bin\x64\Debug\Helpers\Composition\CompositionShadow.xbf">
+      <PackagePath>Helpers\Composition\CompositionShadow.xbf</PackagePath>
+      <Modified>2019-12-15T11:47:17.951</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\PC\Desktop\ZKS projektas\medimotion\bin\x64\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2019-12-10T21:29:07.993</Modified>
+      <Modified>2019-12-15T11:47:17.917</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\PC\Desktop\ZKS projektas\medimotion\bin\x64\Debug\Scenarios\AuthentificationMessage.xbf">
       <PackagePath>Scenarios\AuthentificationMessage.xbf</PackagePath>
-      <Modified>2019-12-10T21:29:08.014</Modified>
+      <Modified>2019-12-15T11:47:17.951</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\PC\Desktop\ZKS projektas\medimotion\bin\x64\Debug\Scenarios\HardwareDetails.xbf">
       <PackagePath>Scenarios\HardwareDetails.xbf</PackagePath>
-      <Modified>2019-12-10T21:29:08.015</Modified>
+      <Modified>2019-12-15T11:47:17.951</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\PC\Desktop\ZKS projektas\medimotion\bin\x64\Debug\Scenarios\HardwareList.xbf">
       <PackagePath>Scenarios\HardwareList.xbf</PackagePath>
-      <Modified>2019-12-10T21:29:08.015</Modified>
+      <Modified>2019-12-15T11:47:17.952</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\PC\Desktop\ZKS projektas\medimotion\bin\x64\Debug\Scenarios\LoginView.xbf">
       <PackagePath>Scenarios\LoginView.xbf</PackagePath>
-      <Modified>2019-12-10T21:29:08.015</Modified>
+      <Modified>2019-12-15T11:47:17.952</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\PC\Desktop\ZKS projektas\medimotion\bin\x64\Debug\Scenarios\ModernList.xbf">
+      <PackagePath>Scenarios\ModernList.xbf</PackagePath>
+      <Modified>2019-12-15T11:47:17.930</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\PC\Desktop\ZKS projektas\medimotion\bin\x64\Debug\Scenarios\ModernListItem.xbf">
+      <PackagePath>Scenarios\ModernListItem.xbf</PackagePath>
+      <Modified>2019-12-15T11:47:17.937</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\PC\Desktop\ZKS projektas\medimotion\bin\x64\Debug\Scenarios\Reference.xbf">
       <PackagePath>Scenarios\Reference.xbf</PackagePath>
-      <Modified>2019-12-10T21:29:08.015</Modified>
+      <Modified>2019-12-15T11:47:17.953</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\PC\Desktop\ZKS projektas\medimotion\bin\x64\Debug\Scenarios\Login.xbf">
       <PackagePath>Scenarios\Login.xbf</PackagePath>
-      <Modified>2019-12-10T21:29:08.015</Modified>
+      <Modified>2019-12-15T11:47:17.953</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\PC\Desktop\ZKS projektas\medimotion\bin\x64\Debug\Scenarios\DetailsPage.xbf">
       <PackagePath>Scenarios\DetailsPage.xbf</PackagePath>
-      <Modified>2019-12-10T21:29:08.016</Modified>
+      <Modified>2019-12-15T11:47:17.953</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\PC\Desktop\ZKS projektas\medimotion\bin\x64\Debug\Scenarios\Home.xbf">
       <PackagePath>Scenarios\Home.xbf</PackagePath>
-      <Modified>2019-12-10T21:29:08.016</Modified>
+      <Modified>2019-12-15T11:47:17.954</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\PC\Desktop\ZKS projektas\medimotion\bin\x64\Debug\Scenarios\Pharmaceuticals.xbf">
       <PackagePath>Scenarios\Pharmaceuticals.xbf</PackagePath>
-      <Modified>2019-12-10T21:29:08.016</Modified>
+      <Modified>2019-12-15T11:47:17.954</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\PC\Desktop\ZKS projektas\medimotion\bin\x64\Debug\Scenarios\Patients.xbf">
       <PackagePath>Scenarios\Patients.xbf</PackagePath>
-      <Modified>2019-12-10T21:29:08.013</Modified>
+      <Modified>2019-12-15T11:47:17.950</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\PC\Desktop\ZKS projektas\medimotion\bin\x64\Debug\Styles\Styles.xbf">
       <PackagePath>Styles\Styles.xbf</PackagePath>
-      <Modified>2019-12-10T21:29:07.988</Modified>
+      <Modified>2019-12-15T11:47:17.900</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.UniversalCRT.Debug\10.0.18362.0\\redist\Debug\X64\ucrtbased.dll">
       <PackagePath>ucrtbased.dll</PackagePath>
@@ -346,11 +366,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\PC\Desktop\ZKS projektas\medimotion\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2019-12-10T20:55:29.548</Modified>
+      <Modified>2019-12-15T11:47:18.521</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\PC\Desktop\ZKS projektas\medimotion\bin\x64\Debug\Core\MediMotion.exe">
       <PackagePath>MediMotion.exe</PackagePath>
-      <Modified>2019-12-10T21:29:09.148</Modified>
+      <Modified>2019-12-15T11:47:19.616</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

@@ -91,23 +91,8 @@
     <AppxPackagedFile Include="C:\Users\PC\Desktop\ZKS projektas\medimotion\Images\voice_reco.gif">
       <PackagePath>Images\voice_reco.gif</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\PC\Desktop\ZKS projektas\medimotion\Images\background.jpg">
-      <PackagePath>Images\background.jpg</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\PC\Desktop\ZKS projektas\medimotion\Images\background2.jpg">
-      <PackagePath>Images\background2.jpg</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\PC\Desktop\ZKS projektas\medimotion\Images\background3.jpg">
-      <PackagePath>Images\background3.jpg</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\PC\Desktop\ZKS projektas\medimotion\Images\medical_logo.jpg">
-      <PackagePath>Images\medical_logo.jpg</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\PC\Desktop\ZKS projektas\medimotion\Images\medical_modern.jpg">
-      <PackagePath>Images\medical_modern.jpg</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\PC\Desktop\ZKS projektas\medimotion\Images\procedures_modern.jpg">
-      <PackagePath>Images\procedures_modern.jpg</PackagePath>
+    <AppxPackagedFile Include="C:\Users\PC\Desktop\ZKS projektas\medimotion\Helpers\Composition\CircleMask.png">
+      <PackagePath>Helpers\Composition\CircleMask.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\PC\Desktop\ZKS projektas\medimotion\Images\background_blur.png">
       <PackagePath>Images\background_blur.png</PackagePath>
@@ -199,6 +184,24 @@
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\PC\Desktop\ZKS projektas\medimotion\Images\background.jpg">
+      <PackagePath>Images\background.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\PC\Desktop\ZKS projektas\medimotion\Images\background2.jpg">
+      <PackagePath>Images\background2.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\PC\Desktop\ZKS projektas\medimotion\Images\background3.jpg">
+      <PackagePath>Images\background3.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\PC\Desktop\ZKS projektas\medimotion\Images\medical_logo.jpg">
+      <PackagePath>Images\medical_logo.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\PC\Desktop\ZKS projektas\medimotion\Images\medical_modern.jpg">
+      <PackagePath>Images\medical_modern.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\PC\Desktop\ZKS projektas\medimotion\Images\procedures_modern.jpg">
+      <PackagePath>Images\procedures_modern.jpg</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\PC\Desktop\ZKS projektas\medimotion\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
     </AppxPackagedFile>
@@ -207,6 +210,12 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\PC\Desktop\ZKS projektas\medimotion\bin\x64\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\PC\Desktop\ZKS projektas\medimotion\bin\x64\Debug\Controls\TimelineItemUserControl\TimelineStory.xbf">
+      <PackagePath>Controls\TimelineItemUserControl\TimelineStory.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\PC\Desktop\ZKS projektas\medimotion\bin\x64\Debug\Helpers\Composition\CompositionShadow.xbf">
+      <PackagePath>Helpers\Composition\CompositionShadow.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\PC\Desktop\ZKS projektas\medimotion\bin\x64\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
@@ -222,6 +231,12 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\PC\Desktop\ZKS projektas\medimotion\bin\x64\Debug\Scenarios\LoginView.xbf">
       <PackagePath>Scenarios\LoginView.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\PC\Desktop\ZKS projektas\medimotion\bin\x64\Debug\Scenarios\ModernList.xbf">
+      <PackagePath>Scenarios\ModernList.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\PC\Desktop\ZKS projektas\medimotion\bin\x64\Debug\Scenarios\ModernListItem.xbf">
+      <PackagePath>Scenarios\ModernListItem.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\PC\Desktop\ZKS projektas\medimotion\bin\x64\Debug\Scenarios\Reference.xbf">
       <PackagePath>Scenarios\Reference.xbf</PackagePath>
