@@ -1,10 +1,12 @@
-using MediMotion.Model;
+﻿using MediMotion.Model;
+using MediMotion.Scenarios;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 
@@ -19,7 +21,8 @@ namespace MediMotion
 
         private ObservableCollection<Patient> PatientsList;
 
-        public Patients()
+
+            public Patients()
         {
             this.InitializeComponent();
             this.Loaded += OnLoaded;
@@ -27,7 +30,7 @@ namespace MediMotion
             // Get the contacts from a Service
             // Remember to enable the NavigationCacheMode of this Page to avoid
             // load the data every time user navigates back and forward.    
-            PatientsList = Patient.GetPatients(140);
+            PatientsList = Patient.GetPatients(70);
             if (PatientsList.Count > 0)
             {
                 MasterListView.ItemsSource = PatientsList;
@@ -42,6 +45,16 @@ namespace MediMotion
             }
             base.OnNavigatedTo(e);
         }
+        private async void ViewPhysiologicalData(object sender, RoutedEventArgs e)
+        {
+            ContentDialog dialog = new PhysiologicalInfo()
+            {
+                Title = "  ⓘ Information",
+                IsPrimaryButtonEnabled = true
+            };
+            await dialog.ShowAsync();
+        }
+
         private void OnLoaded(object sender, RoutedEventArgs e)
         {
             if (selectedPatient == null && PatientsList.Count > 0)

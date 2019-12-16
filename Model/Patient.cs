@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using Windows.UI.Xaml.Media.Imaging;
 
 namespace MediMotion.Model
 {
@@ -34,6 +35,18 @@ namespace MediMotion.Model
                 return name;
             }
         }
+        private string email;
+        public string Email
+        {
+            get
+            {
+                if (FirstName != string.Empty)
+                {
+                    email = FirstName + "@gmail.com";
+                }
+                return email;
+            }
+        }
         private string lastName;
         public string LastName
         {
@@ -62,10 +75,162 @@ namespace MediMotion.Model
                 name = string.Empty; // force to recalculate the value 
             }
         }
+        private string education;
+        public string Education
+        {
+            get
+            {
+                return education;
+            }
+            set
+            {
+                education = value;
+            }
+        }
+
+        private string title;
+        public string Title
+        {
+            get
+            {
+                return title;
+            }
+            set
+            {
+                title = value;
+            }
+        }
+        private string occupation;
+        public string Occupation
+        {
+            get
+            {
+                return occupation;
+            }
+            set
+            {
+                occupation = value;
+            }
+        }
+        private string postalCode;
+        public string PostalCode
+        {
+            get
+            {
+                return postalCode;
+            }
+            set
+            {
+                postalCode = value;
+            }
+        }
+        private string age;
+        public string Age
+        {
+            get
+            {
+                return age;
+            }
+            set
+            {
+                age = value;
+            }
+        }
+        private string middleName;
+        public string MiddleName
+        {
+            get
+            {
+                return middleName;
+            }
+            set
+            {
+                middleName = value;
+            }
+        }
+        private string region;
+        public string Region
+        {
+            get
+            {
+                return region;
+            }
+            set
+            {
+                region = value;
+            }
+        }
+        private string marital;
+        public string Marital
+        {
+            get
+            {
+                return marital;
+            }
+            set
+            {
+                marital = value;
+            }
+        }
+        private string birthDate;
+        public string BirthDate
+        {
+            get
+            {
+                return birthDate;
+            }
+            set
+            {
+                birthDate = value;
+            }
+        }
+        private string childrenCount;
+        public string ChildrenCount
+        {
+            get
+            {
+                return childrenCount;
+            }
+            set
+            {
+                childrenCount = value;
+            }
+        }
+
         public string Position { get; set; }
         public string PhoneNumber { get; set; }
         public string Biography { get; set; }
         #endregion
+        private BitmapImage personPicture;
+        public BitmapImage PersonPicture
+        {
+            get
+            {
+                return personPicture;
+            }
+
+            set
+            {
+                personPicture = value;
+            }
+        }
+
+        private static List<BitmapImage> personPictures = Patient.generatePictures();
+        private static List<BitmapImage> generatePictures()
+        {
+            string dir_start = "ms-appx:///Images/personPictures/face";
+            var sources = new List<BitmapImage>();
+            for(int i = 0; i < 20; i++)
+            {
+                sources.Add(new BitmapImage(new Uri(String.Format("{0}{1}.png", dir_start, (i + 1))))); 
+            }
+            return sources;
+        }
+
+        private static BitmapImage GenerateImage()
+        {
+            return personPictures[random.Next(0, personPictures.Count)];
+        }
 
         public Patient()
         {
@@ -73,10 +238,20 @@ namespace MediMotion.Model
             initials = string.Empty;
             name = string.Empty;
             LastName = string.Empty;
+            Title = string.Empty;
             FirstName = string.Empty;
             Position = string.Empty;
             PhoneNumber = string.Empty;
             Biography = string.Empty;
+            Occupation = string.Empty;
+            PostalCode = string.Empty;
+            MiddleName = string.Empty;
+            Age = string.Empty;
+            BirthDate = string.Empty;
+            Marital = string.Empty;
+            Region = string.Empty;
+            PersonPicture = null;
+            ChildrenCount = string.Empty;
         }
 
         #region Public Methods
@@ -89,6 +264,17 @@ namespace MediMotion.Model
                 Biography = GetBiography(),
                 PhoneNumber = GeneratePhoneNumber(),
                 Position = GeneratePosition(),
+                Title = GenerateTitle(),
+                Education = GenerateEducation(),
+                Occupation = GenerateOccupaton(),
+                PersonPicture = GenerateImage(),
+                PostalCode = GeneratePostalCode(),
+                MiddleName = GenerateFirstName(),
+                Region = GenerateRegions(),
+                Age = GenerateAge(),
+                BirthDate = GenerateBirtDate(),
+                Marital = GenerateMarital(),
+                ChildrenCount = GenerateChildrenCount()
             };
         }
         public static ObservableCollection<Patient> GetPatients(int numberOfPatients)
@@ -131,9 +317,24 @@ namespace MediMotion.Model
         #endregion
 
         #region Helpers
+        private static string GenerateAge()
+        {
+            return random.Next(0, 99).ToString();
+        }
         private static string GeneratePosition()
         {
-            List<string> positions = new List<string>() { "Children(0-5)", "Children(5-18)", "Adult", "Senior" };
+            List<string> positions = new List<string>() { "Category 1", "Category 2", "Category 3", "Category 4" };
+            return positions[random.Next(0, positions.Count)];
+        }
+        private static string GenerateEducation()
+        {
+            List<string> positions = new List<string>() { "Bachelor in Computer Science", "Major in Engineering", "PhD in Physiology", "Major in management", "PhD in Mathematics", "Bachelor in Desing", "Bachelor in Information Systems", "Bachelor in Statistics", "Major in Data Science"
+            , "PhD in History", "Bachelor in Sociology", "Bachelor in Psychology", "Bachelor in Fundamental Science", "Major in Electrical Engineering", "Law Bachelor", "Law PhD", "Master in Astrology", "PhD in Physics", "Master in Astronomy"};
+            return positions[random.Next(0, positions.Count)];
+        }
+        private static string GenerateTitle()
+        {
+            List<string> positions = new List<string>() { "Mr", "Mrs", "Ms" };
             return positions[random.Next(0, positions.Count)];
         }
         private static string GetBiography()
@@ -158,15 +359,54 @@ namespace MediMotion.Model
         {
             return string.Format("{0:(###)} {1:###}-{2:####}", random.Next(100, 999), random.Next(100, 999), random.Next(1000, 9999));
         }
+        private static string GeneratePostalCode()
+        {
+            return string.Format("US {0:####} {1:##}", random.Next(100, 9999), random.Next(10, 99));
+        }
+        private static string GenerateMarital()
+        {
+            List<string> names = new List<string>() { "Married", "Divorced", "Single", "Engaged" };
+           return names[random.Next(0, names.Count)];
+        }
+        private static string GenerateBirtDate()
+        {
+            DateTime start = new DateTime(1960, 1, 1);
+            int range = (DateTime.Parse("2000-12-12") - start).Days;
+            return string.Format("{0:yyyy-MM-dd}", start.AddDays(random.Next(range)));
+        }
+        private static string GenerateChildrenCount()
+        {
+            return random.Next(0, 10).ToString();
+        }
         private static string GenerateFirstName()
         {
-            List<string> names = new List<string>() { "Lilly", "Mukhtar", "Sophie", "Femke", "Abdul-Rafi'", "Chirag-ud-D...", "Mariana", "Aarif", "Sara", "Ibadah", "Fakhr", "Ilene", "Sardar", "Hanna", "Julie", "Iain", "Natalia", "Henrik", "Rasa", "Quentin", "Gadi", "Pernille", "Ishtar", "Jimme", "Justina", "Lale", "Elize", "Rand", "Roshanara", "Rajab", "Bijou", "Marcus", "Marcus", "Alima", "Francisco", "Thaqib", "Andreas", "Mariana", "Amalie", "Rodney", "Dena", "Fadl", "Ammar", "Anna", "Nasreen", "Reem", "Tomas", "Filipa", "Frank", "Bari'ah", "Parvaiz", "Jibran", "Tomas", "Elli", "Carlos", "Diego", "Henrik", "Aruna", "Vahid", "Eliana", "Roxane", "Amanda", "Ingrid", "Wander", "Malika", "Basim", "Eisa", "Alina", "Andreas", "Deeba", "Diya", "Parveen", "Bakr", "Celine", "Bakr", "Marcus", "Daniel", "Mathea", "Edmee", "Hedda", "Maria", "Maja", "Alhasan", "Alina", "Hedda", "Victor", "Aaftab", "Guilherme", "Maria", "Kai", "Sabien", "Abdel", "Fadl", "Bahaar", "Vasco", "Jibran", "Parsa", "Catalina", "Fouad", "Colette" };
+            List<string> names = new List<string>() { "Lilly", "Mukhtar", "Sophie", "Femke", "Abdul-Rafi'", "Chirag-ud-D", "Mariana", "Aarif", "Sara", "Ibadah", "Fakhr", "Ilene", "Sardar", "Hanna", "Julie", "Iain", "Natalia", "Henrik", "Rasa", "Quentin", "Gadi", "Pernille", "Ishtar", "Jimme", "Justina", "Lale", "Elize", "Rand", "Roshanara", "Rajab", "Bijou", "Marcus", "Marcus", "Alima", "Francisco", "Thaqib", "Andreas", "Mariana", "Amalie", "Rodney", "Dena", "Fadl", "Ammar", "Anna", "Nasreen", "Reem", "Tomas", "Filipa", "Frank", "Bari'ah", "Parvaiz", "Jibran", "Tomas", "Elli", "Carlos", "Diego", "Henrik", "Aruna", "Vahid", "Eliana", "Roxane", "Amanda", "Ingrid", "Wander", "Malika", "Basim", "Eisa", "Alina", "Andreas", "Deeba", "Diya", "Parveen", "Bakr", "Celine", "Bakr", "Marcus", "Daniel", "Mathea", "Edmee", "Hedda", "Maria", "Maja", "Alhasan", "Alina", "Hedda", "Victor", "Aaftab", "Guilherme", "Maria", "Kai", "Sabien", "Abdel", "Fadl", "Bahaar", "Vasco", "Jibran", "Parsa", "Catalina", "Fouad", "Colette" };
+            return names[random.Next(0, names.Count)];
+        }
+        private static string GenerateRegions()
+        {
+            List<string> names = new List<string>() {
+                        "Connecticut", "Maine", "Massachusetts", "New Hampshire", "Rhode Island", "Vermont",
+                    "New Jersey", "New York", "Puerto Rico", "US Virgin Islands",
+                         "Delaware", "District of Columbia", "Maryland", "Pennsylvania", "Virginia", "West Virginia",
+                         "Alabama", "Florida", "Georgia", "Kentucky", "Mississippi", "North Carolina", "South Carolina", "Tennessee",
+                       "Illinois", "Indiana", "Michigan, Minnesota, Ohio, Wisconsin",
+                       "Arkansas", "Louisiana", "New Mexico, Oklahoma, Texas",
+                       "Iowa", "Kansas", "Missouri", "Nebraska",
+                       " Colorado", "Montana", "North Dakota", "South Dakota", "Utah", "Wyoming",
+                        "Arizona", "California", "Hawaii", "Nevada", "American Samoa", "Guam", "Northern Mariana Islands",
+                       "Alaska", "Idaho", "Oregon", "Washington" };
             return names[random.Next(0, names.Count)];
         }
         private static string GenerateLastName()
         {
             List<string> lastnames = new List<string>() { "Carlson", "Attia", "Quint", "Hollenberg", "Khoury", "Araujo", "Hakimi", "Seegers", "Abadi", "al", "Krommenhoek", "Siavashi", "Kvistad", "Sjo", "Vanderslik", "Fernandes", "Dehli", "Sheibani", "Laamers", "Batlouni", "Lyngvær", "Oveisi", "Veenhuizen", "Gardenier", "Siavashi", "Mutlu", "Karzai", "Mousavi", "Natsheh", "Seegers", "Nevland", "Lægreid", "Bishara", "Cunha", "Hotaki", "Kyvik", "Cardoso", "Pilskog", "Pennekamp", "Nuijten", "Bettar", "Borsboom", "Skistad", "Asef", "Sayegh", "Sousa", "Medeiros", "Kregel", "Shamoun", "Behzadi", "Kuzbari", "Ferreira", "Van", "Barros", "Fernandes", "Formo", "Nolet", "Shahrestaani", "Correla", "Amiri", "Sousa", "Fretheim", "Van", "Hamade", "Baba", "Mustafa", "Bishara", "Formo", "Hemmati", "Nader", "Hatami", "Natsheh", "Langen", "Maloof", "Berger", "Ostrem", "Bardsen", "Kramer", "Bekken", "Salcedo", "Holter", "Nader", "Bettar", "Georgsen", "Cunha", "Zardooz", "Araujo", "Batalha", "Antunes", "Vanderhoorn", "Nader", "Abadi", "Siavashi", "Montes", "Sherzai", "Vanderschans", "Neves", "Sarraf", "Kuiters" };
             return lastnames[random.Next(0, lastnames.Count)];
+        }
+        private static string GenerateOccupaton()
+        {
+            List<string> names = new List<string>() { "Delivery driver", "Aircraft engineer", "Counsellor", "Crown prosecutor", "Musician",  "Porter", "Orthodontist", "General practitioner", "Film producer", "Meteorologist", "Travel agent", "Sales manager", "Driving instructor", "Historian", "Garden designer", "Solicitor", "Salesperson" };
+            return names[random.Next(0, names.Count)];
         }
         #endregion
     }

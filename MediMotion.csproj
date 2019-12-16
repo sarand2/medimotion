@@ -156,7 +156,12 @@
     <Compile Include="DataModel\InkNote.cs" />
     <Compile Include="DataModel\InkNoteData.cs" />
     <Compile Include="DataModel\LocalStorageContext.cs" />
+    <Compile Include="DataModel\MyConverter.cs" />
     <Compile Include="DataModel\NowPlayingState.cs" />
+    <Compile Include="DataModel\Photo.cs" />
+    <Compile Include="DataModel\Pose.cs" />
+    <Compile Include="DataModel\ScoreConverter.cs" />
+    <Compile Include="DataModel\YogaData.cs" />
     <Compile Include="Data\NewsItem.cs" />
     <Compile Include="Helpers\AnimationExtensions.News.cs" />
     <Compile Include="Helpers\Composition\CompositionImage.cs" />
@@ -175,10 +180,14 @@
     <Compile Include="Model\Item.cs" />
     <Compile Include="Model\Patient.cs" />
     <Compile Include="Model\Pharmaceutical.cs" />
+    <Compile Include="Model\Timing.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SampleConfiguration.cs" />
     <Compile Include="Scenarios\AuthentificationMessage.xaml.cs">
       <DependentUpon>AuthentificationMessage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Scenarios\ExampleControl.xaml.cs">
+      <DependentUpon>ExampleControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Scenarios\HardwareDetails.xaml.cs">
       <DependentUpon>HardwareDetails.xaml</DependentUpon>
@@ -195,8 +204,14 @@
     <Compile Include="Scenarios\ModernListItem.xaml.cs">
       <DependentUpon>ModernListItem.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Scenarios\PhysiologicalInfo.xaml.cs">
+      <DependentUpon>PhysiologicalInfo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Scenarios\TilePage.xaml.cs">
       <DependentUpon>TilePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Scenarios\PharmaDetails.xaml.cs">
+      <DependentUpon>PharmaDetails.xaml</DependentUpon>
     </Compile>
     <Compile Include="Services\IAvailableSystemsObserver.cs" />
     <Compile Include="Services\IFullscreenPage.cs" />
@@ -236,10 +251,15 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\company_logo.png" />
+    <Content Include="Images\dna.gif" />
+    <Content Include="Images\dna2.gif" />
+    <Content Include="Images\exercise.png" />
+    <Content Include="Images\food.png" />
     <Content Include="Images\hardware_modern.png" />
     <Content Include="Images\house_circle.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\human_body.gif" />
     <Content Include="Images\lock_gif.gif" />
     <Content Include="Images\lock_modern.png" />
     <Content Include="Images\lock_modern_gif.gif" />
@@ -259,12 +279,40 @@
     <Content Include="Images\molecule_7.png" />
     <Content Include="Images\molecule_8.png" />
     <Content Include="Images\molecule_9.png" />
+    <Content Include="Images\overall.png" />
     <Content Include="Images\patient_modern.png" />
+    <Content Include="Images\personPictures\face10.png" />
+    <Content Include="Images\personPictures\face11.png" />
+    <Content Include="Images\personPictures\face12.png" />
+    <Content Include="Images\personPictures\face13.png" />
+    <Content Include="Images\personPictures\face14.png" />
+    <Content Include="Images\personPictures\face15.png" />
+    <Content Include="Images\personPictures\face16.png" />
+    <Content Include="Images\personPictures\face17.png" />
+    <Content Include="Images\personPictures\face18.png" />
+    <Content Include="Images\personPictures\face19.png" />
+    <Content Include="Images\personPictures\face2.png" />
+    <Content Include="Images\personPictures\face20.png" />
+    <Content Include="Images\personPictures\face3.png" />
+    <Content Include="Images\personPictures\face4.png" />
+    <Content Include="Images\personPictures\face5.png" />
+    <Content Include="Images\personPictures\face6.png" />
+    <Content Include="Images\personPictures\face7.png" />
+    <Content Include="Images\personPictures\face8.png" />
+    <Content Include="Images\personPictures\face9.png" />
+    <Content Include="Images\personPictures\face1.png" />
     <Content Include="Images\pharma_button.png" />
     <Content Include="Images\procedures_modern.jpg" />
+    <Content Include="Images\psychology.png" />
     <Content Include="Images\reference_modern.png" />
+    <Content Include="Images\sleep.png" />
     <Content Include="Images\splash.scale-400.png" />
     <Content Include="Images\voice_reco.gif" />
+    <Content Include="Images\xrays\xray1.png" />
+    <Content Include="Images\xrays\xray2.png" />
+    <Content Include="Images\xrays\xray3.png" />
+    <Content Include="Images\xrays\xray4.png" />
+    <Content Include="Images\xrays\xray5.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -295,6 +343,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Scenarios\ExampleControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Scenarios\HardwareDetails.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -312,6 +364,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Scenarios\ModernListItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Scenarios\PhysiologicalInfo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -335,6 +391,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Scenarios\PharmaDetails.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Scenarios\TilePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -347,6 +407,7 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="app.manifest" />
+    <None Include="Images\data.json" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite">

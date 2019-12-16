@@ -6,7 +6,11 @@
     xmlns:local="using:MediMotion"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    xmlns:media="using:Microsoft.UI.Xaml.Media"
+    xmlns:x1="using:System"
+    xmlns:local1="using:MediMotion.DataModel"
+    mc:Ignorable="d"
+    Background="Transparent">
 
     <Page.Transitions>
         <TransitionCollection>
@@ -14,62 +18,100 @@
         </TransitionCollection>
     </Page.Transitions>
 
-    <Page.BottomAppBar>
-        <CommandBar>
-            <AppBarButton x:Name="SelectItmesBtn" FontFamily="OverflowCheckGlyph" Label="Select Items" Click="SelectItems">
-                <AppBarButton.Icon>
-                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xe762;" />
-                </AppBarButton.Icon>
-            </AppBarButton>
-            <AppBarButton x:Name="AddItemBtn" Label="Add Item" Icon="Add" Click="AddItem" />
-            <AppBarButton x:Name="DeleteItemBtn" Label="Delete Item" Icon="Delete" Click="DeleteItem" />
-            <AppBarButton x:Name="DeleteItemsBtn" Label="Delete Items" Icon="Delete" Click="DeleteItems" />
-            <AppBarButton x:Name="CancelSelectionBtn" Label="Cancel" Icon="Cancel" Click="CancelSelection" />
-        </CommandBar>
-    </Page.BottomAppBar>
     <Page.Resources>
-        <!-- When using x:Bind, you need to set x:DataType -->
+        <ResourceDictionary>
+            <ResourceDictionary.ThemeDictionaries>
+                <ResourceDictionary x:Key="Default">
+                    <media:AcrylicBrush x:Key="CustomAcrylicInAppBrush" BackgroundSource="Backdrop" TintOpacity ="0.3"  TintColor="Black" FallbackColor="Black"/>
+                    <media:AcrylicBrush x:Key="CustomAcrylicBackgroundBrush" BackgroundSource="HostBackdrop" TintOpacity="0.8" TintColor="Black" FallbackColor="Green"/>
+                    <media:AcrylicBrush x:Key="CustomAcrylicInAppLuminosity" BackgroundSource="Backdrop" TintOpacity="0.8" TintColor="SkyBlue" FallbackColor="SkyBlue"/>
+                </ResourceDictionary>
+            </ResourceDictionary.ThemeDictionaries>
+            
+            <Style x:Key="SeparatorStyle" TargetType="Border">
+                <Setter Property="BorderThickness" Value="1,0,0,0"/>
+                <Setter Property="BorderBrush" Value="LightGray"/>
+            </Style>
+            <Style x:Key="CardSeparator" TargetType="Rectangle">
+                    <Setter Property="Margin" Value="0,12,0,0" />
+                    <Setter Property="Fill" Value="LightGray" />
+                    <Setter Property="Height" Value="1" />
+                </Style>
+                <Style x:Key="CardHeader" TargetType="TextBlock">
+                    <Setter Property="Margin" Value="0,4,0,0" />
+                    <Setter Property="FontSize" Value="15" />
+                </Style>
+            <Style x:Key="CardSection" TargetType="TextBlock">
+                <Setter Property="Margin" Value="0,12,0,6" />
+                <Setter Property="FontWeight" Value="Bold" />
+                <Setter Property="FontSize" Value="15" />
+            </Style>
+            <local1:MyConverter x:Key="MyConverterInstance" StringFormat=" {0: yyyy}"/>
+            <!-- When using x:Bind, you need to set x:DataType -->
         <DataTemplate x:Name="ContactListViewTemplate" x:DataType="data:Patient">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Ellipse x:Name="Ellipse"
-                         Grid.RowSpan="2"
-                         Width ="32"
-                         Height="32"
-                         Margin="6"
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="4*"/>
+                    </Grid.ColumnDefinitions>
+                    <Ellipse x:Name="Ellipse" Grid.Column="0"
+                         Width ="96"
+                         Height="96"
+                         Margin="5"
                          VerticalAlignment="Center"
-                         HorizontalAlignment="Center"
-                         Fill="LightGray"/>
-                <TextBlock Grid.Column="1"
+                         Stroke="Gray" StrokeThickness="1"
+                         HorizontalAlignment="Center">
+                        <Ellipse.Fill>
+                            <ImageBrush Stretch="UniformToFill" ImageSource="{x:Bind PersonPicture}" />
+                        </Ellipse.Fill>
+                    </Ellipse>
+                    <StackPanel Grid.Column="1" MinWidth="390">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1.5*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Grid.Row="0"
                            Text="{x:Bind Name}" 
                            x:Phase="1"  
                            Style="{ThemeResource BaseTextBlockStyle}"
+                           FontSize="32"
                            Margin="12,6,0,0"/>
-                <TextBlock  Grid.Column="1"
-                            Grid.Row="1"
-                            Text="{x:Bind Position}" 
-                            x:Phase="2"
-                            Style="{ThemeResource BodyTextBlockStyle}"
-                            Margin="12,0,0,6"/>
-            </Grid>
+                            <StackPanel Grid.Row="1">
+                                <Rectangle Margin="10,10,0,0" Width="150" HorizontalAlignment="Left" Style="{StaticResource CardSeparator}"/>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Margin="5,5,0,0" Style="{StaticResource CardSection}" Foreground="White" Text="Patient ID" FontFamily="Segoe UI" />
+                                    <TextBlock Margin="5,5,0,0" Style="{StaticResource CardHeader}" Foreground="White" Text="{x:Bind Position}" FontFamily="Segoe UI" />
+                                    <Border Margin="5,7,0,0"  Height="15" VerticalAlignment="Center" Style="{StaticResource SeparatorStyle}"/>
+                                    <TextBlock Margin="5,5,0,0" Style="{StaticResource CardSection}" Foreground="White" Text="Group" FontFamily="Segoe UI" />
+                                    <TextBlock Margin="5,5,0,0" Style="{StaticResource CardHeader}" Foreground="White" Text="{x:Bind Position}" FontFamily="Segoe UI" />
+                                    <Border Margin="5,7,0,0"  Height="15" VerticalAlignment="Center" Style="{StaticResource SeparatorStyle}"/>
+                                    <TextBlock Margin="5,5,0,0" Style="{StaticResource CardSection}" Foreground="White" Text="Age" FontFamily="Segoe UI" />
+                                    <TextBlock Margin="5,5,0,0" Style="{StaticResource CardHeader}" Foreground="White" Text="{x:Bind Position}" FontFamily="Segoe UI" />
+                                </StackPanel>
+                                <Rectangle Margin="10,10,0,0" Width="150" HorizontalAlignment="Left" Style="{StaticResource CardSeparator}"/>
+                                <TextBlock Margin="5,5,0,0" Style="{StaticResource CardSection}" Foreground="White" Text="Assigned specialist" FontFamily="Segoe UI" />
+                                <TextBlock Margin="5,5,0,0" Style="{StaticResource CardHeader}" Foreground="White" Text="Gregory House, M.D" FontFamily="Segoe UI" />
+                                <TextBlock Margin="5,5,0,0" Style="{StaticResource CardHeader}" Foreground="White" Text="" FontFamily="Segoe UI" />
+                            </StackPanel>
+                           
+                        </Grid>
+                       
+                    </StackPanel>
+
+                </Grid>
         </DataTemplate>
+        </ResourceDictionary>
     </Page.Resources>
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid  Background="{StaticResource CustomAcrylicInAppBrush}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="1"/>
+            <RowDefinition Height="4*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
         <VisualStateManager.VisualStateGroups>
@@ -83,8 +125,6 @@
                     <VisualState.Setters>
                         <Setter Target="MasterListView.Visibility" Value="Visible" />
                         <Setter Target="DetailContentPresenter.Visibility" Value="Visible" />
-                        <!--<Setter Target="MasterColumn.Width" Value="320" />
-                        <Setter Target="DetailColumn.Width" Value="*"/>-->
                     </VisualState.Setters>
                 </VisualState>
 
@@ -126,20 +166,20 @@
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
 
-        <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+        <Grid  Background="{StaticResource CustomAcrylicInAppBrush}"
               Grid.Row="1"
               Grid.ColumnSpan="2">
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
+                <RowDefinition Height="0.2*" />
+                <RowDefinition Height="2*" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition x:Name="MasterColumn" Width="320"  />
-                <ColumnDefinition x:Name="DetailColumn" Width="*" />
+                <ColumnDefinition x:Name="MasterColumn" Width="1*"  />
+                <ColumnDefinition x:Name="DetailColumn" Width="2.5*" />
             </Grid.ColumnDefinitions>
 
-            <Border Background="{ThemeResource SystemControlBackgroundChromeMediumBrush}">
-                <TextBlock Text="Patients" Margin="24,8,8,8"
+            <Border Grid.Row="0" >
+                <TextBlock Text="Patients" Margin="24,8,8,8" FontSize="36" FontWeight="SemiBold" FontFamily="Segoe UI"
                            Style="{ThemeResource TitleTextBlockStyle}" />
             </Border>
 
@@ -170,21 +210,120 @@
                 Content="{x:Bind MasterListView.SelectedItem, Mode=OneWay}">
                 <ContentPresenter.ContentTemplate>
                     <DataTemplate x:DataType="data:Patient">
-                        <StackPanel>
-                            <TextBlock Style="{ThemeResource TitleTextBlockStyle}"
-                                   Margin="0,8"       
-                                   Text="{x:Bind Name}"/>
-                            <TextBlock Style="{ThemeResource BodyTextBlockStyle}"
-                                   Margin="0,9" 
-                                   Text="{x:Bind Position}" />
-                            <TextBlock Style="{ThemeResource BodyTextBlockStyle}" 
-                                   Margin="0,9" 
-                                   Text="{x:Bind PhoneNumber}" />
-                            <TextBlock Style="{ThemeResource BodyTextBlockStyle}" 
-                                   Margin="0,9" 
-                                   TextWrapping="WrapWholeWords"
-                                   Text="{x:Bind Biography}" />
-                        </StackPanel>
+                        <Grid Margin="10,0,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Margin="0,20,0,30" Style="{StaticResource FormsSection}" FontSize="40" Foreground="DarkGray" Text="Personal Information" Grid.Row="0" Grid.ColumnSpan="2"/>
+        <StackPanel Grid.Row="1">
+            <StackPanel Orientation="Horizontal">
+                <StackPanel>
+                    <TextBlock Style="{StaticResource BodyTextBlockStyle}" FontSize="30" Foreground="WhiteSmoke" Text="First name"/>
+                    <TextBlock Margin="5,2,0,0" Style="{StaticResource TitleTextBlockStyle}" FontSize="24" Foreground="WhiteSmoke" Text="{x:Bind FirstName}"/>
+                </StackPanel>
+                <StackPanel Margin="20,0,0,0">
+                    <TextBlock Style="{StaticResource BodyTextBlockStyle}" FontSize="30" Foreground="WhiteSmoke" Text="Middle Name"/>
+                    <TextBlock Margin="5,0,0,0" Style="{StaticResource TitleTextBlockStyle}" FontSize="24" Foreground="WhiteSmoke" Text="{x:Bind MiddleName}"/>
+                </StackPanel>
+            </StackPanel>
+            <Rectangle Margin="0,10,0,10" Width="210" HorizontalAlignment="Left" Style="{StaticResource CardSeparator}"/>
+            <TextBlock Style="{StaticResource BodyTextBlockStyle}" FontSize="30" Foreground="WhiteSmoke" Text="Email address"/>
+            <TextBlock Margin="5,0,0,0" Style="{StaticResource TitleTextBlockStyle}" FontSize="24" Foreground="WhiteSmoke" Text="{x:Bind Email}"/>
+            <TextBlock Margin="0,10,0,30" Style="{StaticResource FormsSection}" FontSize="40" Foreground="DarkGray" Text="Address information" Grid.ColumnSpan="2"/>
+            <StackPanel Orientation="Horizontal">
+                <StackPanel>
+                    <TextBlock Style="{StaticResource BodyTextBlockStyle}" FontSize="30" Foreground="WhiteSmoke" Text="Address Line 1"/>
+                    <TextBlock Margin="5,0,0,0" Style="{StaticResource TitleTextBlockStyle}" FontSize="24" Foreground="WhiteSmoke" Text="Address #1"/>
+                </StackPanel>
+            </StackPanel>
+            <Rectangle Margin="0,10,0,0" Grid.ColumnSpan="3" Width="210" HorizontalAlignment="Left" Style="{StaticResource CardSeparator}"/>
+            <StackPanel>
+                <TextBlock Margin ="0,10,0,0" Style="{StaticResource BodyTextBlockStyle}" FontSize="30" Foreground="WhiteSmoke" Text="Postal Code"/>
+                <TextBlock Margin="5,2,0,0" Style="{StaticResource TitleTextBlockStyle}" FontSize="24" Foreground="WhiteSmoke" Text="{x:Bind PostalCode}"/>
+            </StackPanel>
+         <Rectangle Margin="0,10,0,10" Width="210" HorizontalAlignment="Left" Style="{StaticResource CardSeparator}"/>
+        <StackPanel>
+        <TextBlock Margin ="0,0,0,0" Style="{StaticResource BodyTextBlockStyle}" FontSize="30" Foreground="WhiteSmoke" Text="Country"/>
+                <TextBlock Margin="5,2,0,0" Style="{StaticResource TitleTextBlockStyle}" FontSize="24" Foreground="WhiteSmoke" Text="John"/>
+            </StackPanel>
+               <TextBlock Margin="0,10,0,30" Style="{StaticResource FormsSection}" FontSize="40" Foreground="DarkGray" Text="Demographic information" Grid.Row="1" Grid.ColumnSpan="2"/>
+                <StackPanel Orientation="Horizontal">
+                <StackPanel>
+                    <TextBlock Style="{StaticResource BodyTextBlockStyle}" FontSize="30" Foreground="WhiteSmoke" Text="Birth Date"/>
+                                        <TextBlock Margin="5,0,0,0" Style="{StaticResource TitleTextBlockStyle}" FontSize="24" Foreground="WhiteSmoke" Text="{x:Bind BirthDate}"/>
+                </StackPanel>
+            </StackPanel>
+                <Rectangle Margin="0,10,0,0" Grid.ColumnSpan="3" Width="210" HorizontalAlignment="Left" Style="{StaticResource CardSeparator}"/>
+                                <StackPanel Orientation="Horizontal">
+                                    <StackPanel>
+                                        <TextBlock Style="{StaticResource BodyTextBlockStyle}" FontSize="30" Foreground="WhiteSmoke" Text="Education"/>
+                                        <TextBlock Margin="5,0,0,0" Style="{StaticResource TitleTextBlockStyle}" FontSize="24" Foreground="WhiteSmoke" Text="{x:Bind Education}"/>
+                                    </StackPanel>
+
+                                </StackPanel>
+                            </StackPanel>
+        
+        <StackPanel  Grid.Row="1" Grid.Column="1" >
+            <StackPanel Orientation="Horizontal">
+                <StackPanel>
+                    <TextBlock Style="{StaticResource BodyTextBlockStyle}" FontSize="30" Foreground="WhiteSmoke" Text="Last Name"/>
+                    <TextBlock Margin="5,2,0,0" Style="{StaticResource TitleTextBlockStyle}" FontSize="24" Foreground="WhiteSmoke" Text="{x:Bind LastName}"/>
+                </StackPanel>
+                <StackPanel Margin="20,0,0,0">
+                    <TextBlock Style="{StaticResource BodyTextBlockStyle}" FontSize="30" Foreground="WhiteSmoke" Text="Title"/>
+                    <TextBlock Margin="5,0,0,0" Style="{StaticResource TitleTextBlockStyle}" FontSize="24" Foreground="WhiteSmoke" Text="{x:Bind Title}"/>
+                </StackPanel>
+                
+            </StackPanel>
+
+
+                                <Rectangle Margin="0,10,0,10" Grid.ColumnSpan="3" Width="210" HorizontalAlignment="Left" Style="{StaticResource CardSeparator}"/>
+                                <TextBlock Style="{StaticResource BodyTextBlockStyle}" FontSize="30" Foreground="WhiteSmoke" Text="Phone"/>
+            <TextBlock Margin="5,0,0,0" Style="{StaticResource TitleTextBlockStyle}" FontSize="24" Foreground="WhiteSmoke" Text="{x:Bind PhoneNumber}"/>
+                                <TextBlock Margin="0,10,0,30" Style="{StaticResource FormsSection}" FontSize="40" Foreground="DarkGray" Text="" Grid.Row="1" Grid.ColumnSpan="2"/>
+
+                                <StackPanel>
+                <TextBlock Style="{StaticResource BodyTextBlockStyle}" FontSize="30" Foreground="WhiteSmoke" Text="Region"/>
+                <TextBlock Margin="5,0,0,0" Style="{StaticResource TitleTextBlockStyle}" FontSize="24" Foreground="WhiteSmoke" Text="{x:Bind Region}"/>
+            </StackPanel>
+                                <Rectangle Margin="0,10,0,0" Grid.ColumnSpan="3" Width="210" HorizontalAlignment="Left" Style="{StaticResource CardSeparator}"/>
+
+                                <StackPanel>
+                                    <TextBlock Margin ="0,10,0,0" Style="{StaticResource BodyTextBlockStyle}" FontSize="30" Foreground="WhiteSmoke" Text="Country"/>
+                                    <TextBlock Margin="5,2,0,0" Style="{StaticResource TitleTextBlockStyle}" FontSize="24" Foreground="WhiteSmoke" Text="{x:Bind Region}"/>
+                                    <Rectangle Margin="0,10,0,10" Grid.ColumnSpan="3" Width="210" HorizontalAlignment="Left" Style="{StaticResource CardSeparator}"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <StackPanel Margin="0,167,0,10">
+                                        <TextBlock Style="{StaticResource BodyTextBlockStyle}" FontSize="30" Foreground="WhiteSmoke" Text="Occupation"/>
+                                        <TextBlock Margin="5,0,0,0" Style="{StaticResource TitleTextBlockStyle}" FontSize="24" Foreground="WhiteSmoke" Text="{x:Bind Occupation}"/>
+                                    </StackPanel>
+                                    <StackPanel  Margin="50,167,0,10">
+                                        <TextBlock Style="{StaticResource BodyTextBlockStyle}" FontSize="30" Foreground="WhiteSmoke" Text="Marital status"/>
+                                        <TextBlock Margin="5,0,0,0" Style="{StaticResource TitleTextBlockStyle}" FontSize="24" Foreground="WhiteSmoke" Text="{x:Bind Marital}"/>
+                                    </StackPanel>
+                                </StackPanel>
+                                <Rectangle Margin="0,0,0,0" Grid.ColumnSpan="3" Width="210" HorizontalAlignment="Left" Style="{StaticResource CardSeparator}"/>
+                                <StackPanel Orientation="Horizontal">
+                                    <StackPanel>
+                                        <TextBlock Style="{StaticResource BodyTextBlockStyle}" FontSize="30" Foreground="WhiteSmoke" Text="Children"/>
+                                        <TextBlock Margin="5,0,0,0" Style="{StaticResource TitleTextBlockStyle}" FontSize="24" Foreground="WhiteSmoke" Text="{x:Bind ChildrenCount}"/>
+                                    </StackPanel>
+
+                                </StackPanel>
+
+                            </StackPanel>
+                            
+                            
+                            
+        <Button HorizontalAlignment="Center" Click="ViewPhysiologicalData" VerticalAlignment="Center" FontSize="35" FontWeight="Bold" Grid.ColumnSpan="2" Height="90" Grid.Row="2" Width="500" >View physiological data</Button>
+    </Grid>
                     </DataTemplate>
                 </ContentPresenter.ContentTemplate>
                 <ContentPresenter.ContentTransitions>

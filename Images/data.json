@@ -1,0 +1,97 @@
+﻿{
+  "Poses": [
+    {
+      "Name": "The Twisty",
+      "Score": 5,
+      "Position": "ms-appx:///Assets/Poses/Yoga_poses-05.png",
+      "Comment": "You're going to hurt youself"
+    },
+    {
+      "Name": "Dancer's",
+      "Score": 40,
+      "Position": "ms-appx:///Assets/Poses/Yoga_poses-16.png",
+      "Comment": "Practice makes perfect"
+    },
+    {
+      "Name": "Warrior III",
+      "Score": 80,
+      "Position": "ms-appx:///Assets/Poses/Yoga_poses-17.png",
+      "Comment": "Great job!"
+    },
+    {
+      "Name": "Warrior I",
+      "Score": 100,
+      "Position": "ms-appx:///Assets/Poses/Yoga_poses-30.png",
+      "Comment": "Very Impressed"
+    },{
+      "Name": "Cobra",
+      "Score": 5,
+      "Position": "ms-appx:///Assets/Poses/Yoga_poses-31.png",
+      "Comment": "You're going to hurt youself"
+    },
+    {
+      "Name": "Mermaid",
+      "Score": 40,
+      "Position": "ms-appx:///Assets/Poses/Yoga_poses-59.png",
+      "Comment": "Practice makes perfect"
+    },
+    {
+      "Name": "Firefly",
+      "Score": 80,
+      "Position": "ms-appx:///Assets/Poses/Yoga_poses-48.png",
+      "Comment": "Great job!"
+    },
+    {
+      "Name": "Warrior I",
+      "Score": 100,
+      "Position": "ms-appx:///Assets/Poses/Yoga_poses-30.png",
+      "Comment": "Very Impressed"
+    },{
+      "Name": "Downward Dog",
+      "Score": 5,
+      "Position": "ms-appx:///Assets/Poses/Yoga_poses-61.png",
+      "Comment": "You're going to hurt youself"
+    },
+    {
+      "Name": "Crescent Lunge",
+      "Score": 40,
+      "Position": "ms-appx:///Assets/Poses/Yoga_poses-12.png",
+      "Comment": "Practice makes perfect"
+    },
+    {
+      "Name": "Warrior III",
+      "Score": 80,
+      "Position": "ms-appx:///Assets/Poses/Yoga_poses-17.png",
+      "Comment": "Great job!"
+    },
+    {
+      "Name": "Warrior I",
+      "Score": 100,
+      "Position": "ms-appx:///Assets/Poses/Yoga_poses-30.png",
+      "Comment": "Very Impressed"
+    },{
+      "Name": "Namaste",
+      "Score": 5,
+      "Position": "ms-appx:///Assets/Poses/Yoga_poses-99.png",
+      "Comment": "You're going to hurt youself"
+    },
+    {
+      "Name": "Dancer's",
+      "Score": 40,
+      "Position": "ms-appx:///Assets/Poses/Yoga_poses-16.png",
+      "Comment": "Practice makes perfect"
+    },
+    {
+      "Name": "Warrior III",
+      "Score": 80,
+      "Position": "ms-appx:///Assets/Poses/Yoga_poses-17.png",
+      "Comment": "Great job!"
+    },
+    {
+      "Name": "Warrior I",
+      "Score": 100,
+      "Position": "ms-appx:///Assets/Poses/Yoga_poses-30.png",
+      "Comment": "Very Impressed"
+    }
+  ]
+}
