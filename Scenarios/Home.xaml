@@ -63,13 +63,14 @@
         </Border>
    </StackPanel>
          <StackPanel  Grid.Row="1">
-        <TextBlock Text="Visitations today" 
+            <TextBlock Text="Visitations today" 
                    VerticalAlignment="Top"
                    Margin="20,0,10,30"
                    FontSize="35"
                    FontWeight="SemiBold"
                    Style="{ThemeResource TitleTextBlockStyle}" />
-            <controls:DataGrid x:Name="dataGrid1"  VerticalAlignment="Center"
+            <Grid>
+                <controls:DataGrid x:Name="dataGrid1"  VerticalAlignment="Center"
                                VerticalScrollBarVisibility="Auto"
                     AutoGenerateColumns="False"
                     FontSize="30"
@@ -111,6 +112,7 @@
             Binding="{Binding Category}" />
             </controls:DataGrid.Columns>
         </controls:DataGrid>
+                </Grid>
         </StackPanel>
     </Grid>
 </Page>
