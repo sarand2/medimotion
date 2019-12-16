@@ -176,10 +176,12 @@
     <Compile Include="Helpers\StoryTemplateSelector.cs" />
     <Compile Include="MainPage.xaml.cs" />
     <Compile Include="Model\ActivePatient.cs" />
+    <Compile Include="Model\AudioCapturePermissions.cs" />
     <Compile Include="Model\GroupInfoList.cs" />
     <Compile Include="Model\Item.cs" />
     <Compile Include="Model\Patient.cs" />
     <Compile Include="Model\Pharmaceutical.cs" />
+    <Compile Include="Model\SpeechToText.cs" />
     <Compile Include="Model\Timing.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SampleConfiguration.cs" />
