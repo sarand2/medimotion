@@ -81,6 +81,7 @@
             <controls:DataGrid.Columns>
                 <controls:DataGridTextColumn 
             Header="Time" 
+                    
                         FontSize="25"
                          FontFamily="Segoe UI"
             Width="1*"
