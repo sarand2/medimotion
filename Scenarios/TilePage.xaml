@@ -8,10 +8,11 @@
     xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
     xmlns:media="using:Microsoft.UI.Xaml.Media"
     mc:Ignorable="d"
-    animations:Implicit.HideAnimations="{StaticResource DefaultPageHideAnimation}">
+   >
 
     <Page.Resources>
         <ResourceDictionary>
+            <media:AcrylicBrush x:Key="CustomAcrylicInAppBrush" BackgroundSource="Backdrop" TintOpacity ="0.3"  TintColor="Black" FallbackColor="Black"/>
             <media:AcrylicBrush x:Key="bgAcrylicBrush" 
                         BackgroundSource="HostBackdrop"
                         Opacity="1.00"
@@ -25,7 +26,7 @@
         </ResourceDictionary>
     </Page.Resources>
 
-    <Grid Style="{StaticResource PageBackground}">
+    <Grid Background="{StaticResource CustomAcrylicInAppBrush}">
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
                 <VisualState x:Name="Wider">
@@ -34,8 +35,6 @@
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <Setter Target="Logo.HorizontalAlignment" Value="Left" ></Setter>
-                        <Setter Target="Search.HorizontalAlignment" Value="Right" ></Setter>
-                        <Setter Target="Search.Margin" Value="0,68,24,0" ></Setter>
                     </VisualState.Setters>
                 </VisualState>
                 <VisualState x:Name="Narrower">
@@ -45,7 +44,6 @@
                     <VisualState.Setters>
                         <Setter Target="Logo.HorizontalAlignment" Value="Center" ></Setter>
                         <Setter Target="Logo.HorizontalAlignment" Value="Center" ></Setter>
-                        <Setter Target="Search.Margin" Value="0,140,24,0" ></Setter>
                     </VisualState.Setters>
                 </VisualState>
                 <VisualState x:Name="VeryNarrow">
@@ -55,67 +53,21 @@
                     <VisualState.Setters>
                         <Setter Target="Logo.HorizontalAlignment" Value="Center" ></Setter>
                         <Setter Target="Logo.HorizontalAlignment" Value="Center" ></Setter>
-                        <Setter Target="Search.Margin" Value="0,140,24,0" ></Setter>
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="310"></RowDefinition>
+            <RowDefinition Height="3*"></RowDefinition>
+            <RowDefinition Height="2.5*"></RowDefinition>
         </Grid.RowDefinitions>
-        <ContentPresenter
-                x:Name="DetailContentPresenter"
-                Margin="00,0,0,310"
-                Grid.Row="0"
-                MinHeight="690"
-                BorderThickness="1,0,0,0"
-                MinWidth="1450"
-                MaxWidth="1450"
-                BorderBrush="{ThemeResource SystemControlForegroundBaseLowBrush}"
-                Content="{x:Bind HomeFeedGrid.SelectedItem, Mode=OneWay}" Grid.RowSpan="2">
-            <ContentPresenter.ContentTemplate>
-                <DataTemplate x:DataType="datamodel:Feed">
-                    <StackPanel Margin="10,0,0,0">
-                        <TextBlock Style="{ThemeResource TitleTextBlockStyle}"
-                                   Margin="0,8"       
-                                   Text="{x:Bind Title}"
-                                   />
-                        <TextBlock Style="{ThemeResource BodyTextBlockStyle}"
-                                   Margin="0,9" 
-                                   Text="{x:Bind Author}" />
-                        <Image x:Name="Image" 
-                                   HorizontalAlignment="Left"
-                                   Stretch="UniformToFill" Height="250" Width="250">
-                            <Image.Source>
-                                <BitmapImage UriSource="{x:Bind ImageUri}">
-                                </BitmapImage>
-                            </Image.Source>
-                        </Image>
-                        <TextBlock Style="{ThemeResource BodyTextBlockStyle}" 
-                                   Margin="0,9" 
-                                   TextWrapping="WrapWholeWords"
-                                   Text="{x:Bind Description}"
-                                   FontSize="12"/>
-                    </StackPanel>
-                </DataTemplate>
-            </ContentPresenter.ContentTemplate>
-            <ContentPresenter.ContentTransitions>
-                <TransitionCollection/>
-            </ContentPresenter.ContentTransitions>
-        </ContentPresenter>
-
-
-        <!--<ParallaxView x:Name="paraimage" Grid.Row="0" HorizontalShift="400" Source="{x:Bind HomeFeedGrid}" VerticalAlignment="Bottom" Margin="0,-228,0,0">
+        
+        <ParallaxView x:Name="paraimage" Grid.Row="0" HorizontalShift="400" Source="{x:Bind HomeFeedGrid}" VerticalAlignment="Bottom" >
             <Image 
                    Margin="-0,0,0,0"
                    Stretch="UniformToFill"
-                   MinHeight="690">
-                -->
-        <!--<Image.Source>
-                    <BitmapImage UriSource="{x:Bind ParallaxImage}" />
-                </Image.Source>-->
-        <!--
+                   MinHeight="300"
+                    Source="/Images/med_hardware.png">
             </Image>
             <animations:Implicit.ShowAnimations>
                 <animations:TranslationAnimation Duration="0:0:0.55" To="0" From="0, -150, 0"></animations:TranslationAnimation>
@@ -124,7 +76,7 @@
                 <animations:TranslationAnimation Duration="0:0:0.55" To="0, -150, 0"></animations:TranslationAnimation>
                 <animations:OpacityAnimation Duration="0:0:0.4" To="0"></animations:OpacityAnimation>
             </animations:Implicit.HideAnimations>
-        </ParallaxView>-->
+        </ParallaxView>
 
         <Image x:Name="Logo" 
                VerticalAlignment="Top" 
@@ -136,13 +88,8 @@
                 <SvgImageSource UriSource="{x:Bind LogoSource}" />
             </Image.Source>
         </Image>
-
-        <!--<AutoSuggestBox x:Name="Search" Grid.Row="0" Width="296" PlaceholderText="Search episodes" Margin="0,68,24,0" QueryIcon="Find"
-                        TextChanged="AutoSuggestBox_TextChanged"
-                        SuggestionChosen="AutoSuggestBox_SuggestionChosen"
-                        RequestedTheme="Light"
-                        animations:Implicit.Animations="{StaticResource LayoutImplicitAnimations}"/>-->
-        <TextBlock Grid.Row="1" VerticalAlignment="Top" Style="{ThemeResource SubtitleTextBlockStyle}" FontWeight="Medium" Margin="24,12,0,0" Text="Hardware list" />
+        <StackPanel  Grid.Row="1">
+        <TextBlock Grid.Row="1" VerticalAlignment="Top" Style="{ThemeResource SubtitleTextBlockStyle}" FontSize="35" FontWeight="Medium" Margin="30,50,0,0" Text="Hardware list" />
 
         <GridView Grid.Row="1" x:Name="HomeFeedGrid" IsItemClickEnabled="True" ItemClick="HomeFeedGrid_ItemClick"
                   
@@ -160,35 +107,36 @@
                       >
             <GridView.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <ItemsStackPanel Margin="14,0,0,0" Orientation="Horizontal" />
+                    <ItemsStackPanel Margin="30,0,0,0" Orientation="Horizontal" />
                 </ItemsPanelTemplate>
             </GridView.ItemsPanel>
             <GridView.ItemTemplate>
                 <DataTemplate x:DataType="datamodel:Feed">
-                    <Grid x:Name="GalleryItem" Margin="10,0">
+                    <Grid x:Name="GalleryItem" Margin="30,20,30,0">
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="200" />
+                            <RowDefinition Height="300" />
                             <RowDefinition />
                         </Grid.RowDefinitions>
                         <Border Grid.RowSpan="2" x:Name="Shadow" BorderBrush="White" BorderThickness="0"/>
 
                         <Image x:Name="Image" 
                                    HorizontalAlignment="Left"
-                                   Stretch="UniformToFill" Height="190" Width="190">
+                                   Stretch="UniformToFill" Height="300" Width="300">
                             <Image.Source>
                                 <BitmapImage UriSource="{x:Bind ImageUri}">
                                 </BitmapImage>
                             </Image.Source>
                         </Image>
-                        <StackPanel VerticalAlignment="Bottom" Grid.Row="1" Margin="5,0,5,0" Width="180">
-                            <TextBlock Text="{x:Bind Title}" FontWeight="Normal" FontSize="14"
-                                       Style="{ThemeResource BodyTextBlockStyle}" TextWrapping="NoWrap"
-                                       HorizontalAlignment="Left" />
+                        <StackPanel VerticalAlignment="Bottom" Grid.Row="1" Margin="5,0,10,0" Width="180">
+                            <TextBlock Text="{x:Bind Title}" FontWeight="Medium" TextAlignment="Center"
+                                       Style="{ThemeResource BodyTextBlockStyle}" TextWrapping="WrapWholeWords" FontSize="25"
+                                       HorizontalAlignment="Center" />
                             <TextBlock Text="{x:Bind Author}"  />
                         </StackPanel>
                     </Grid>
                 </DataTemplate>
             </GridView.ItemTemplate>
         </GridView>
+        </StackPanel>
     </Grid>
 </Page>

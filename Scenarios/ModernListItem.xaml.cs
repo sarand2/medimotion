@@ -9,6 +9,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Media.Core;
+using Windows.System;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -54,11 +55,24 @@ namespace MediMotion.Scenarios
             RootElement.ViewChanged += RootElement_ViewChanged;
 
             animatableSections.Add(new AnimatableSection(Section1, Section1Animate));
+            Window.Current.CoreWindow.KeyDown += ContentDialog_KeyDown;
             //animatableSections.Add(new AnimatableSection(Section2, Section2Animate));
             //animatableSections.Add(new AnimatableSection(Section3, Section3Animate));
             //animatableSections.Add(new AnimatableSection(Section4, Section4Animate));
             //animatableSections.Add(new AnimatableSection(VideoSection, VideoSectionAnimate));
             //animatableSections.Add(new AnimatableSection(RelatedSection, RelatedSectionAnimate));
+        }
+        private static bool IsEscPressed()
+        {
+            var escState = CoreWindow.GetForCurrentThread().GetKeyState(VirtualKey.Escape);
+            return (escState & CoreVirtualKeyStates.Down) == CoreVirtualKeyStates.Down;
+        }
+        private void ContentDialog_KeyDown(CoreWindow window, KeyEventArgs e)
+        {
+            if (IsEscPressed())
+            {
+                MainPage.MainScenarioFrame.Navigate(typeof(ModernList));
+            }
         }
 
         private void DetailsPage_KeyDown(CoreWindow sender, KeyEventArgs args)
@@ -99,6 +113,8 @@ namespace MediMotion.Scenarios
             {
                 summaryAnimation.TryStart(DescriptionText);
             }
+
+
 
             //var likesAnimation = animationService.GetAnimation("Likes");
             //if (likesAnimation != null)
@@ -172,7 +188,7 @@ namespace MediMotion.Scenarios
         private void Section1Animate()
         {
             //AuthorLine.Offset(offsetY: 20, duration: 0).Then().Fade(1).Offset().Start();
-            GlifMain.Offset(offsetY: 20, duration: 0).Then().Fade(1).Offset().Start();
+            //GlifMain.Offset(offsetY: 20, duration: 0).Then().Fade(1).Offset().Start();
         }
 
         //private void Section2Animate()

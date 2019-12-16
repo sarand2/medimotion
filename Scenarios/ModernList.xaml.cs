@@ -66,7 +66,6 @@ namespace MediMotion.Scenarios
             var items = NewsItem.GetData();
 
             Items = items;
-            Topics = NewsItem.GetListOfTopics();
             this.Loaded += MainPage_Loaded;
 
             this.InitializeComponent();

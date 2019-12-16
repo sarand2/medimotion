@@ -17,6 +17,7 @@ using System.Numerics;
 using MediMotion.DataModel;
 using MediMotion.Services;
 using MediMotion.Services.Navigation;
+using Microsoft.Toolkit.Uwp.Helpers;
 using Windows.UI.Composition;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -91,14 +92,14 @@ namespace MediMotion.Scenarios
 
         protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
         {
-            base.OnNavigatingFrom(e);
-            Canvas.SetZIndex(this, 1);
+          //  base.OnNavigatingFrom(e);
+          //  Canvas.SetZIndex(this, 1);
         }
 
         #region staggering
         private void HomeFeedGrid_ContainerContentChanging(ListViewBase sender, ContainerContentChangingEventArgs args)
         {
-            args.ItemContainer.Loaded += ItemContainer_Loaded;
+         //   args.ItemContainer.Loaded += ItemContainer_Loaded;
         }
 
         private void ItemContainer_Loaded(object sender, RoutedEventArgs e)
@@ -149,26 +150,15 @@ namespace MediMotion.Scenarios
 
         #endregion
 
-        private void HomeFeedGrid_ItemClick(object sender, ItemClickEventArgs e)
+        private async void HomeFeedGrid_ItemClick(object sender, ItemClickEventArgs e)
         {
             var selectedFeed = e.ClickedItem as Feed;
             _persistedItemIndex = HomeFeedGrid.Items.IndexOf(e.ClickedItem);
-        }
-
-        private void AutoSuggestBox_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
-        {
-            if (args.Reason == AutoSuggestionBoxTextChangeReason.UserInput)
+            await DispatcherHelper.ExecuteOnUIThreadAsync(() =>
             {
-                using (var context = new LocalStorageContext())
-                {
-                    var results = context.EpisodeCache.Where(t => t.Title.ToLower().Contains(sender.Text.ToLower()));
-                    sender.ItemsSource = results.ToList();
-                }
-            }
-        }
+                Frame.Navigate(typeof(TileDetails), parameter: selectedFeed);
+            });
 
-        private void AutoSuggestBox_SuggestionChosen(AutoSuggestBox sender, AutoSuggestBoxSuggestionChosenEventArgs args)
-        {
         }
     }
 }

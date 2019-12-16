@@ -44,7 +44,7 @@
                 <StackPanel Name="LikesContainer" Grid.Row="3" Orientation="Horizontal">
                     <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="15" VerticalAlignment="Center" ></TextBlock>
                     <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="15" VerticalAlignment="Center" Margin="10,0,4,0"></TextBlock>
-                    <TextBlock FontSize="12" VerticalAlignment="Center" Margin="0,7,0,0" Text="{x:Bind Item.Likes}"></TextBlock>
+                    <TextBlock FontSize="12" VerticalAlignment="Center" Margin="0,7,0,0" Text="{x:Bind Item.Category}"></TextBlock>
                 </StackPanel>
             </Grid>
 

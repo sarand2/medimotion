@@ -208,7 +208,6 @@ namespace MediMotion.Scenarios
         }
         private void ContentDialog_KeyDown(CoreWindow window, KeyEventArgs e)
         {
-            var a = 5+4;
             if (IsEscPressed())
             {
                 this.Hide();

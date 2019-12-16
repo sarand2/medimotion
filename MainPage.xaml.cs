@@ -33,15 +33,18 @@ namespace MediMotion
     public sealed partial class MainPage : Page
     {
         public static MainPage Current;
-        
+        public static Frame MainScenarioFrame;
+
 
         public MainPage()
         {
             this.InitializeComponent();
 
+
             // This is a static public property that allows downstream pages to get a handle to the MainPage instance
             // in order to call methods that are in this class.
             Current = this;
+            MainScenarioFrame = this.ScenarioFrame;
 
             ScenarioFrame.Navigate(scenarios[0].ClassType);
 

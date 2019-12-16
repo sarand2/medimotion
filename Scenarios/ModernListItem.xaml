@@ -8,32 +8,63 @@
     xmlns:c="using:MediMotion.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:media="using:Microsoft.UI.Xaml.Media"
     mc:Ignorable="d">
-
-    <ScrollViewer x:Name="RootElement" 
+    <Page.Resources>
+        <media:AcrylicBrush x:Key="CustomAcrylicInAppBrush" BackgroundSource="Backdrop" TintOpacity ="0.3"  TintColor="Black" FallbackColor="Black"/>
+        <Style x:Key="SeparatorStyle" TargetType="Border">
+            <Setter Property="BorderThickness" Value="4,0,0,0"/>
+            <Setter Property="BorderBrush" Value="LightGray"/>
+        </Style>
+        <Style x:Key="CardSection" TargetType="TextBlock">
+            <Setter Property="Margin" Value="0,12,0,6" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="FontSize" Value="15" />
+        </Style>
+        <Style x:Key="CardSeparator" TargetType="Rectangle">
+            <Setter Property="Margin" Value="0,12,0,0" />
+            <Setter Property="Fill" Value="LightGray" />
+            <Setter Property="Height" Value="1" />
+        </Style>
+    </Page.Resources>
+    <ScrollViewer x:Name="RootElement"  Background="{StaticResource CustomAcrylicInAppBrush}"
                   HorizontalAlignment="Stretch" VerticalAlignment="Top"
                   HorizontalScrollMode="Disabled"   HorizontalScrollBarVisibility="Disabled"
                   VerticalScrollMode="Auto" VerticalScrollBarVisibility="Auto"
                   ZoomMode="Disabled">
-        
-        <StackPanel HorizontalAlignment="Stretch">
-            <Grid x:Name="Hero">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"></RowDefinition>
-                    <RowDefinition Height="Auto"></RowDefinition>
-                </Grid.RowDefinitions>
 
-                <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Top"
-                           Grid.RowSpan="1" Margin="30, 0, 30, 0">
+        <StackPanel HorizontalAlignment="Stretch"  >
+            <Grid x:Name="Hero">
+
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                     <c:FocusableItem x:Name="Section1" MinWidth="1450">
-                        <StackPanel HorizontalAlignment="Stretch" Margin="0,20,0,0" VerticalAlignment="Top">
-                            <Border HorizontalAlignment="Center" Margin="0,20,0,18" BorderBrush="#33FFFFFF" BorderThickness="0,0,0,1">
-                                <TextBlock x:Name="TitleLine" TextAlignment="Center" FontSize="29.333" Margin="0,0,0,15" Text="{x:Bind Item.Title}"></TextBlock>
-                            </Border>
-                            <!--<TextBlock x:Name="AuthorLine" TextAlignment="Center" FontSize="16" Foreground="#CCFFFFFF" Opacity="0" >BY JILL SMITH</TextBlock>-->
-                            <TextBlock x:Name="DescriptionText" TextWrapping="WrapWholeWords" MaxWidth="500" TextAlignment="Center" Opacity="0.6" FontSize="20" TextLineBounds="TrimToBaseline" Width="968"><Run Text="{x:Bind Item.Description}"/></TextBlock>
-                            <Image Name="GlifMain" Source="Assets/glif1.png" Height="70" Opacity="0"></Image>
-                        </StackPanel>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="5*"/>
+                            </Grid.RowDefinitions>
+                            <StackPanel HorizontalAlignment="Stretch" Margin="0,20,0,0" VerticalAlignment="Top" Grid.Row="0">
+                                <Border HorizontalAlignment="Center" Margin="0,20,0,18" BorderBrush="#33FFFFFF" BorderThickness="0,0,0,2">
+                                    <TextBlock x:Name="TitleLine" TextAlignment="Center" FontWeight="SemiBold" FontSize="50" Margin="0,0,0,2" Text="{x:Bind Item.Title}"></TextBlock>
+                                </Border>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Grid.Row="1">
+                                <StackPanel Margin="20,0,20,0">
+                                    <TextBlock Margin="5,5,0,5" Style="{StaticResource CardSection}" FontSize="40" Foreground="White" Text="Information" FontFamily="Segoe UI" />
+                                    <Rectangle Margin="10,10,0,20" Width="150" HorizontalAlignment="Left" Style="{StaticResource CardSeparator}"/>
+                                    <TextBlock x:Name="DescriptionText" TextWrapping="WrapWholeWords" 
+                                       TextAlignment="Justify" Foreground="DarkGray" FontSize="20" FontWeight="SemiBold" TextLineBounds="TrimToBaseline" Width="968"><Run Text="{x:Bind Item.Description}"/></TextBlock>
+                                    <Image VerticalAlignment="Center" HorizontalAlignment="Center" x:Name="image"  Margin="0,40,0,0" RequestedTheme="Default" Source="{x:Bind Item.DescImage}" />
+                                </StackPanel>
+                                <Border HorizontalAlignment="Stretch" Height="600" VerticalAlignment="Center" Style="{StaticResource SeparatorStyle}" Margin="20, 0, 20,0"/>
+                                <StackPanel Margin="20,0,20,0">
+                                    <TextBlock Margin="5,5,0,5" Style="{StaticResource CardSection}" FontSize="40" Foreground="White" Text="Protocol" FontFamily="Segoe UI" />
+                                    <Rectangle Margin="10,10,0,20" Width="150" HorizontalAlignment="Left" Style="{StaticResource CardSeparator}"/>
+                                    <TextBlock x:Name="ProtocolText" TextWrapping="WrapWholeWords" 
+                                       TextAlignment="Justify" Foreground="DarkGray" FontSize="20" FontWeight="SemiBold" TextLineBounds="TrimToBaseline" Width="968"><Run Text="{x:Bind Item.Protocol}"/></TextBlock>
+                                </StackPanel>
+                            </StackPanel>
+                        </Grid>
                     </c:FocusableItem>
                 </StackPanel>
             </Grid>

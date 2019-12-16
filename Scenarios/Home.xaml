@@ -20,11 +20,14 @@
     xmlns:media="using:Microsoft.UI.Xaml.Media"
     xmlns:data="using:MediMotion.Model"
     xmlns:controlsprimitives="using:Microsoft.Toolkit.Uwp.UI.Controls.Primitives"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    MinHeight="1200"
+     MaxHeight="1200"
+    >
     <Page.Resources>
         <ResourceDictionary>
             <Style x:Key="ColumnHeaderStyle" TargetType="controlsprimitives:DataGridColumnHeader">
-                <Setter Property="FontSize" Value="20" />
+                <Setter Property="FontSize" Value="30" />
                 <Setter Property="Height" Value="70" />
                 <Setter Property="FontFamily" Value="Segoe UI" />
                 <Setter Property="FontWeight" Value="SemiBold" />
@@ -32,25 +35,44 @@
             </Style>
             <ResourceDictionary.ThemeDictionaries>
                 <ResourceDictionary x:Key="Default">
-                    <media:AcrylicBrush x:Key="CustomAcrylicInAppBrush" BackgroundSource="Backdrop" TintOpacity="0.8" TintColor="Black" FallbackColor="Green"/>
+                    <media:AcrylicBrush x:Key="CustomAcrylicInAppBrush" BackgroundSource="Backdrop" TintOpacity ="0.3"  TintColor="Black" FallbackColor="Black"/>
                     <media:AcrylicBrush x:Key="CustomAcrylicBackgroundBrush" BackgroundSource="HostBackdrop" TintOpacity="0.8" TintColor="Black" FallbackColor="Green"/>
                     <media:AcrylicBrush x:Key="CustomAcrylicInAppLuminosity" BackgroundSource="Backdrop" TintOpacity="0.8" TintColor="SkyBlue" FallbackColor="SkyBlue"/>
                 </ResourceDictionary>
             </ResourceDictionary.ThemeDictionaries>
         </ResourceDictionary>
     </Page.Resources>
-    
+
     <Grid Background="{ThemeResource CustomAcrylicInAppBrush}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*" />
-            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="3*"/>
         </Grid.RowDefinitions>
-        <Border CornerRadius="0,0,30,30" Margin="10,10,10,10" Grid.Row="0">
+        <StackPanel Grid.Row="0">
+        <TextBlock Text="Visitations this month" 
+                   VerticalAlignment="Center"
+                   Margin="20,40,10,30"
+                   FontSize="35"
+                   FontWeight="SemiBold"
+                   Style="{ThemeResource TitleTextBlockStyle}" 
+                   Grid.Row="0"/>
+        
+        <Border CornerRadius="30,30,30,0" Margin="10,0,10,0" Grid.Row="1" VerticalAlignment="Top">
             <CalendarView CalendarViewDayItemChanging="CalendarView_CalendarViewDayItemChanging" HorizontalAlignment="Stretch" FontSize="25" FontFamily="Calibri" 
                               MonthYearItemFontFamily="Segoe UI" MonthYearItemFontSize="40" DayItemFontFamily="Segoe UI" DayItemFontSize="25" DayOfWeekFormat="{}{dayofweek.abbreviated(2)}" FirstDayOfWeek="Monday"/>
         </Border>
-        <controls:DataGrid x:Name="dataGrid1"  Grid.Row="1"
+   </StackPanel>
+         <StackPanel  Grid.Row="1">
+        <TextBlock Text="Visitations today" 
+                   VerticalAlignment="Top"
+                   Margin="20,0,10,30"
+                   FontSize="35"
+                   FontWeight="SemiBold"
+                   Style="{ThemeResource TitleTextBlockStyle}" />
+            <controls:DataGrid x:Name="dataGrid1"  VerticalAlignment="Center"
+                               VerticalScrollBarVisibility="Auto"
                     AutoGenerateColumns="False"
+                    FontSize="30"
                     ItemsSource="{x:Bind activePatientsToday}"
                                ColumnHeaderStyle="{StaticResource ColumnHeaderStyle}"
                                CanUserResizeColumns="False"
@@ -88,5 +110,6 @@
             Binding="{Binding Category}" />
             </controls:DataGrid.Columns>
         </controls:DataGrid>
+        </StackPanel>
     </Grid>
 </Page>

@@ -7,41 +7,47 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
    xmlns:composition="using:MediMotion.Helpers.Composition"
+    xmlns:media="using:Microsoft.UI.Xaml.Media"
     mc:Ignorable="d">
     <Page.Resources>
+        <Style x:Key="SeparatorStyle" TargetType="Border">
+            <Setter Property="BorderThickness" Value="4,0,0,0"/>
+            <Setter Property="BorderBrush" Value="LightGray"/>
+        </Style>
+        <media:AcrylicBrush x:Key="CustomAcrylicInAppBrush" BackgroundSource="Backdrop" TintOpacity ="0.3"  TintColor="Black" FallbackColor="Black"/>
         <h:StoryTemplateSelector x:Key="StoryTemplateSelector">
             <h:StoryTemplateSelector.Story>
                 <DataTemplate xmlns:data="using:MediMotion.Data" x:DataType="data:NewsItem">
-                    <Grid Height="120" Background="#33000000" SizeChanged="Template_SizeChanged" Loaded="Template_Loaded" >
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="30"></RowDefinition>
-                            <RowDefinition Height="*"></RowDefinition>
-                        </Grid.RowDefinitions>
-                        <composition:CompositionShadow Color="Black" ShadowOpacity="1" BlurRadius="30" HorizontalAlignment="Stretch" VerticalAlignment="Top">
-                            <Border Height="3" Background="Transparent"></Border>
-                        </composition:CompositionShadow>
-
-                        <Grid Grid.Row="1">
+                    <Grid Background="Transparent" SizeChanged="Template_SizeChanged" Loaded="Template_Loaded" >
+                        <!--#33000000-->
+                        <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto"></ColumnDefinition>
                                 <ColumnDefinition Width="*"></ColumnDefinition>
-                                <ColumnDefinition Width="Auto"></ColumnDefinition>
-                                <ColumnDefinition Width="Auto"></ColumnDefinition>
-                                <ColumnDefinition Width="Auto"></ColumnDefinition>
                             </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
 
-                            <Grid Loaded="Grid_Loaded" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Height="68" Width="68" Margin="20,0">
-                                <Ellipse StrokeThickness="1" Stroke="#97FFFFFF" Height="68" Width="68"/>
-                                <composition:CompositionShadow Color="Black" OffsetX="0" OffsetY="0" ShadowOpacity="0.5" BlurRadius="30">
-                                    <composition:CompositionImage Source="{x:Bind HeroImage}" Height="55" Width="55" Stretch="UniformToFill"></composition:CompositionImage>
-                                </composition:CompositionShadow>
-                            </Grid>
-
-                            <StackPanel Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" MinWidth="1450" >
-                                <TextBlock Name="TitleLine" Text="{x:Bind Title}" TextTrimming="CharacterEllipsis"></TextBlock>
-                                <TextBlock Name="SummaryLine" Text="{x:Bind Summary}" TextTrimming="WordEllipsis" TextWrapping="WrapWholeWords" MaxLines="2" FontSize="11"></TextBlock>
+                            <StackPanel Grid.Column="0" Grid.RowSpan="2" Orientation="Horizontal">
+                                <Grid  Background="Transparent" Loaded="Grid_Loaded" Grid.Column="0" VerticalAlignment="Center" Height="190" HorizontalAlignment="Center" Margin="30, 0, 0,0">
+                                    <Ellipse StrokeThickness="1" Stroke="#97FFFFFF" Height="160" Width="160" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                    <composition:CompositionShadow Color="DarkBlue" OffsetX="0" OffsetY="0" ShadowOpacity="0.5" BlurRadius="90" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                                        <composition:CompositionImage  Source="{x:Bind HeroImage}" Height="150" Width="150" Stretch="UniformToFill"></composition:CompositionImage>
+                                    </composition:CompositionShadow>
+                                </Grid>
+                                <Border HorizontalAlignment="Stretch" Height="120" VerticalAlignment="Center" Style="{StaticResource SeparatorStyle}" Margin="20, 0, 20,0"/>
+                                <StackPanel Margin="20,0,20,0" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                    <SymbolIcon Width="30"  Height ="30" Symbol="ThreeBars"/>
+                                    <TextBlock Text="Category" FontFamily="Segoe UI" FontSize="15" FontWeight="SemiBold" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,0,4,0"/>
+                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Segoe UI" FontSize="20" FontWeight="Bold" Text="{x:Bind Category}"/>
+                                </StackPanel>
+                                <StackPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="1450" Margin="10,0,20,0">
+                                    <TextBlock Name="TitleLine" Text="{x:Bind Title}" FontSize="28" FontWeight="SemiBold" TextTrimming="CharacterEllipsis"></TextBlock>
+                                    <TextBlock Name="SummaryLine" Text="{x:Bind Description}"  FontSize="18"   FontFamily="Segoe UI" TextTrimming="WordEllipsis" TextWrapping="WrapWholeWords" MaxLines="2" ></TextBlock>
+                                </StackPanel>
                             </StackPanel>
-
                         </Grid>
                     </Grid>
                 </DataTemplate>
@@ -49,9 +55,21 @@
         </h:StoryTemplateSelector>
     </Page.Resources>
 
-    <Grid x:Name="RootElement">
-    
-            <ListView x:Name="ItemListView" ItemsSource="{x:Bind Items}" 
+    <Grid x:Name="RootElement" Background="{StaticResource CustomAcrylicInAppBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Procedure information" 
+                   VerticalAlignment="Top"
+                   Margin="30,10,10,0"
+                   FontSize="35"
+                   FontWeight="SemiBold"
+                   Style="{ThemeResource TitleTextBlockStyle}" 
+                   Grid.Row="0"/>
+        
+        <ListView x:Name="ItemListView" ItemsSource="{x:Bind Items}" Grid.Row="1"
                       VerticalAlignment="Stretch" SelectionMode="None" 
                       IsItemClickEnabled="True" ItemClick="ListView_ItemClick" 
                       ItemTemplateSelector="{StaticResource StoryTemplateSelector}">
