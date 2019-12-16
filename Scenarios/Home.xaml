@@ -49,28 +49,31 @@
             <RowDefinition Height="3*"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0">
-        <TextBlock Text="Visitations this month" 
+            <TextBlock Text="Visitations this month" 
                    VerticalAlignment="Center"
                    Margin="20,40,10,30"
                    FontSize="35"
                    FontWeight="SemiBold"
                    Style="{ThemeResource TitleTextBlockStyle}" 
                    Grid.Row="0"/>
-        
-        <Border CornerRadius="30,30,30,0" Margin="10,0,10,0" Grid.Row="1" VerticalAlignment="Top">
-            <CalendarView CalendarViewDayItemChanging="CalendarView_CalendarViewDayItemChanging" HorizontalAlignment="Stretch" FontSize="25" FontFamily="Calibri" 
+
+            <Border CornerRadius="30,30,30,0" Margin="10,0,10,0" Grid.Row="1" VerticalAlignment="Top">
+                <CalendarView CalendarViewDayItemChanging="CalendarView_CalendarViewDayItemChanging" HorizontalAlignment="Stretch" FontSize="25" FontFamily="Calibri" 
                               MonthYearItemFontFamily="Segoe UI" MonthYearItemFontSize="40" DayItemFontFamily="Segoe UI" DayItemFontSize="25" DayOfWeekFormat="{}{dayofweek.abbreviated(2)}" FirstDayOfWeek="Monday"/>
-        </Border>
-   </StackPanel>
-         <StackPanel  Grid.Row="1">
-        <TextBlock Text="Visitations today" 
+            </Border>
+        </StackPanel>
+        <StackPanel Grid.Row="1">
+            <TextBlock Text="Visitations today" 
                    VerticalAlignment="Top"
                    Margin="20,0,10,30"
                    FontSize="35"
+                
                    FontWeight="SemiBold"
                    Style="{ThemeResource TitleTextBlockStyle}" />
-            <controls:DataGrid x:Name="dataGrid1"  VerticalAlignment="Center"
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <controls:DataGrid x:Name="dataGrid1"  VerticalAlignment="Center"
                                VerticalScrollBarVisibility="Auto"
+                                   Height="300"
                     AutoGenerateColumns="False"
                     FontSize="30"
                     ItemsSource="{x:Bind activePatientsToday}"
@@ -78,39 +81,40 @@
                                CanUserResizeColumns="False"
                                IsReadOnly="True"
                                >
-            <controls:DataGrid.Columns>
-                <controls:DataGridTextColumn 
+                    <controls:DataGrid.Columns>
+                        <controls:DataGridTextColumn 
             Header="Time" 
                     
                         FontSize="25"
                          FontFamily="Segoe UI"
             Width="1*"
             Binding="{Binding Date}"  />
-                <controls:DataGridTextColumn 
+                        <controls:DataGridTextColumn 
             Header="First Name" 
                          FontSize="25"
                          FontFamily="Segoe UI"
             Binding="{Binding FirstName}"  />
-                <controls:DataGridTextColumn 
+                        <controls:DataGridTextColumn 
             Header="Last Name" 
                          FontSize="25"
                          FontFamily="Segoe UI"
             Width="1*"
             Binding="{Binding LastName}"  />
-                <controls:DataGridTextColumn 
+                        <controls:DataGridTextColumn 
             Header="Method"
                          FontSize="25"
                          FontFamily="Segoe UI"
             Width="1*"
             Binding="{Binding Method}"  />
-                <controls:DataGridTextColumn 
+                        <controls:DataGridTextColumn 
             Header="Category" 
                           FontSize="25"
                          FontFamily="Segoe UI"
             Width="2*"
             Binding="{Binding Category}" />
-            </controls:DataGrid.Columns>
-        </controls:DataGrid>
+                    </controls:DataGrid.Columns>
+                </controls:DataGrid>
+            </ScrollViewer>
         </StackPanel>
     </Grid>
 </Page>
