@@ -58,15 +58,15 @@
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
         <Grid.RowDefinitions>
-            <RowDefinition Height="3*"></RowDefinition>
-            <RowDefinition Height="2.5*"></RowDefinition>
+            <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
-        
-        <ParallaxView x:Name="paraimage" Grid.Row="0" HorizontalShift="400" Source="{x:Bind HomeFeedGrid}" VerticalAlignment="Bottom" >
+
+        <ParallaxView x:Name="paraimage" HorizontalShift="400" Source="{x:Bind HomeFeedGrid}" VerticalAlignment="Center" Height="540" >
             <Image 
                    Margin="-0,0,0,0"
                    Stretch="UniformToFill"
-                   MinHeight="300"
+                   MinHeight="250"
                     Source="/Images/med_hardware.png">
             </Image>
             <animations:Implicit.ShowAnimations>
@@ -83,15 +83,15 @@
                Margin="0,30,0,0"
                Grid.Row="0"
                Width="370"
-               animations:Implicit.Animations="{StaticResource LayoutImplicitAnimations}">
+               animations:Implicit.Animations="{StaticResource LayoutImplicitAnimations}" Height="0">
             <Image.Source>
                 <SvgImageSource UriSource="{x:Bind LogoSource}" />
             </Image.Source>
         </Image>
-        <StackPanel  Grid.Row="1">
-        <TextBlock Grid.Row="1" VerticalAlignment="Top" Style="{ThemeResource SubtitleTextBlockStyle}" FontSize="35" FontWeight="Medium" Margin="30,50,0,0" Text="Hardware list" />
+        <StackPanel  Grid.Row="1" Margin="0,15,0,0">
+            <TextBlock Grid.Row="1" VerticalAlignment="Top" Style="{ThemeResource SubtitleTextBlockStyle}" FontSize="35" FontWeight="Medium" Margin="30,0,0,0" Text="Hardware list" />
 
-        <GridView Grid.Row="1" x:Name="HomeFeedGrid" IsItemClickEnabled="True" ItemClick="HomeFeedGrid_ItemClick"
+            <GridView Grid.Row="1" x:Name="HomeFeedGrid" IsItemClickEnabled="True" ItemClick="HomeFeedGrid_ItemClick"
                   
                       ContainerContentChanging="HomeFeedGrid_ContainerContentChanging"
                       ItemContainerTransitions="{x:Null}"     
@@ -100,43 +100,42 @@
                         ScrollViewer.HorizontalScrollBarVisibility="Visible" 
                       ScrollViewer.VerticalScrollMode="Disabled"
                         ScrollViewer.VerticalScrollBarVisibility="Hidden"
-                      VerticalAlignment="Stretch"
-                     Margin="0,40,0,0"
+                      VerticalAlignment="Stretch"      
                   animations:Connected.ListItemKey="podimageback"
                   animations:Connected.ListItemElementName="Image"
                       >
-            <GridView.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <ItemsStackPanel Margin="30,0,0,0" Orientation="Horizontal" />
-                </ItemsPanelTemplate>
-            </GridView.ItemsPanel>
-            <GridView.ItemTemplate>
-                <DataTemplate x:DataType="datamodel:Feed">
-                    <Grid x:Name="GalleryItem" Margin="30,20,30,0">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="300" />
-                            <RowDefinition />
-                        </Grid.RowDefinitions>
-                        <Border Grid.RowSpan="2" x:Name="Shadow" BorderBrush="White" BorderThickness="0"/>
+                <GridView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <ItemsStackPanel Margin="30,0,0,0" Orientation="Horizontal" />
+                    </ItemsPanelTemplate>
+                </GridView.ItemsPanel>
+                <GridView.ItemTemplate>
+                    <DataTemplate x:DataType="datamodel:Feed">
+                        <Grid x:Name="GalleryItem" Margin="30,0,30,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="300" />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Border Grid.RowSpan="2" x:Name="Shadow" BorderBrush="White" BorderThickness="0"/>
 
-                        <Image x:Name="Image" 
+                            <Image x:Name="Image" 
                                    HorizontalAlignment="Left"
                                    Stretch="UniformToFill" Height="300" Width="300">
-                            <Image.Source>
-                                <BitmapImage UriSource="{x:Bind ImageUri}">
-                                </BitmapImage>
-                            </Image.Source>
-                        </Image>
-                        <StackPanel VerticalAlignment="Bottom" Grid.Row="1" Margin="5,0,10,0" Width="180">
-                            <TextBlock Text="{x:Bind Title}" FontWeight="Medium" TextAlignment="Center"
+                                <Image.Source>
+                                    <BitmapImage UriSource="{x:Bind ImageUri}">
+                                    </BitmapImage>
+                                </Image.Source>
+                            </Image>
+                            <StackPanel VerticalAlignment="Bottom" Grid.Row="1" Margin="5,0,10,0" Width="180">
+                                <TextBlock Text="{x:Bind Title}" FontWeight="Medium" TextAlignment="Center"
                                        Style="{ThemeResource BodyTextBlockStyle}" TextWrapping="WrapWholeWords" FontSize="25"
                                        HorizontalAlignment="Center" />
-                            <TextBlock Text="{x:Bind Author}"  />
-                        </StackPanel>
-                    </Grid>
-                </DataTemplate>
-            </GridView.ItemTemplate>
-        </GridView>
+                                <TextBlock Text="{x:Bind Author}"  />
+                            </StackPanel>
+                        </Grid>
+                    </DataTemplate>
+                </GridView.ItemTemplate>
+            </GridView>
         </StackPanel>
     </Grid>
 </Page>
