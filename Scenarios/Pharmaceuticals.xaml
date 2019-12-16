@@ -50,8 +50,7 @@
             </DataTemplate>
             <!-- Use a collection view source for content that presents itself as a list of items that can be grouped or sorted.  Otherwise, you can use x:Bind
         directly on the GridView's item source to for further optimization. Please see the AppUIBasics sample for an example of how to do this.  -->
-        <CollectionViewSource x:Name="PharmaceuticalsCVS"  IsSourceGrouped="True" />
-        
+            <CollectionViewSource x:Name="PharmaceuticalsCVS"  IsSourceGrouped="True" />
             <ResourceDictionary.ThemeDictionaries>
                 <ResourceDictionary x:Key="Default">
                     <media:AcrylicBrush x:Key="CustomAcrylicInAppBrush" BackgroundSource="Backdrop" TintOpacity ="0.3"  TintColor="Black" FallbackColor="Black"/>
@@ -85,7 +84,10 @@
                    Style="{ThemeResource TitleTextBlockStyle}" 
                    Grid.Column="1"/>
 
-        <GridView ItemsSource="{x:Bind PharmaceuticalsCVS.View}"
+        <GridView 
+            ItemClick="pharmaItemClicked"
+            IsItemClickEnabled="True"
+            ItemsSource="{x:Bind PharmaceuticalsCVS.View}"
                   ItemTemplate="{StaticResource ContactGridViewTemplate}"
                   Grid.Row="1"
                   Grid.ColumnSpan="2">
