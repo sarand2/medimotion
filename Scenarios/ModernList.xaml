@@ -45,7 +45,7 @@
                                 </StackPanel>
                                 <StackPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="1450" Margin="10,0,20,0">
                                     <TextBlock Name="TitleLine" Text="{x:Bind Title}" FontSize="28" FontWeight="SemiBold" TextTrimming="CharacterEllipsis"></TextBlock>
-                                    <TextBlock Name="SummaryLine" Text="{x:Bind Description}"  FontSize="18"   FontFamily="Segoe UI" TextTrimming="WordEllipsis" TextWrapping="WrapWholeWords" MaxLines="2" ></TextBlock>
+                                    <TextBlock Name="SummaryLine" Text="{x:Bind Summary}"  FontSize="18"   FontFamily="Segoe UI" TextTrimming="WordEllipsis" TextWrapping="WrapWholeWords" MaxLines="2" ></TextBlock>
                                 </StackPanel>
                             </StackPanel>
                         </Grid>
@@ -70,7 +70,7 @@
                    Grid.Row="0"/>
         
         <ListView x:Name="ItemListView" ItemsSource="{x:Bind Items}" Grid.Row="1"
-                      VerticalAlignment="Stretch" SelectionMode="None" 
+                      VerticalAlignment="Stretch" SelectionMode="None"
                       IsItemClickEnabled="True" ItemClick="ListView_ItemClick" 
                       ItemTemplateSelector="{StaticResource StoryTemplateSelector}">
                 <ListView.ItemContainerStyle>

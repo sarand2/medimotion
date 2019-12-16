@@ -9,6 +9,7 @@ namespace MediMotion.Data
     public class NewsItem
     {
         private static string lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam imperdiet iaculis porta. Morbi tortor sem, lobortis sed vulputate vitae, pulvinar at tortor. Vestibulum faucibus consectetur augue, sit amet congue ante commodo vitae. ";
+        private static string loremShort = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam imperdiet iaculis porta.";
         private static string imageHome = "http://adx.azureedge.net/Images/Watermark";
         public string Title { get; set; }
         public string Summary { get; set; }
@@ -55,6 +56,7 @@ namespace MediMotion.Data
                     Category = random.Next(6),
                     HeroImage = string.Format("ms-appx:///Images/Procedures/procedure{0}.png", (i+1)),
                     DescImage = string.Format("ms-appx:///Images/Procedures/procedure{0}{1}.png", (i + 1), (i+1)),
+                    Summary= loremShort,
                     Description = lorem,
                     Protocol = GetDescription()
                 });
@@ -69,6 +71,7 @@ namespace MediMotion.Data
                     HeroImage = string.Format("ms-appx:///Images/Procedures/procedure{0}.png", (imageNumber + 1)),
                     DescImage = string.Format("ms-appx:///Images/Procedures/procedure{0}{1}.png", (imageNumber + 1), (imageNumber + 1)),
                     Description = lorem,
+                    Summary = loremShort,
                     Protocol = GetDescription()
                }); 
             }
