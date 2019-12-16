@@ -60,9 +60,15 @@
             <Border CornerRadius="30,30,30,0" Margin="10,0,10,0" Grid.Row="1" VerticalAlignment="Top">
                 <CalendarView CalendarViewDayItemChanging="CalendarView_CalendarViewDayItemChanging" HorizontalAlignment="Stretch" FontSize="25" FontFamily="Calibri" 
                               MonthYearItemFontFamily="Segoe UI" MonthYearItemFontSize="40" DayItemFontFamily="Segoe UI" DayItemFontSize="25" DayOfWeekFormat="{}{dayofweek.abbreviated(2)}" FirstDayOfWeek="Monday"/>
+<<<<<<< HEAD
+        </Border>
+   </StackPanel>
+         <StackPanel  Grid.Row="1">
+=======
             </Border>
         </StackPanel>
         <StackPanel Grid.Row="1">
+>>>>>>> e7fbb57d3125e05067794d68b531f9afc75b8c26
             <TextBlock Text="Visitations today" 
                    VerticalAlignment="Top"
                    Margin="20,0,10,30"
@@ -70,7 +76,11 @@
                 
                    FontWeight="SemiBold"
                    Style="{ThemeResource TitleTextBlockStyle}" />
+<<<<<<< HEAD
+            <Grid>
+=======
             <ScrollViewer VerticalScrollBarVisibility="Auto">
+>>>>>>> e7fbb57d3125e05067794d68b531f9afc75b8c26
                 <controls:DataGrid x:Name="dataGrid1"  VerticalAlignment="Center"
                                VerticalScrollBarVisibility="Auto"
                                    Height="300"
@@ -112,9 +122,15 @@
                          FontFamily="Segoe UI"
             Width="2*"
             Binding="{Binding Category}" />
+<<<<<<< HEAD
+            </controls:DataGrid.Columns>
+        </controls:DataGrid>
+                </Grid>
+=======
                     </controls:DataGrid.Columns>
                 </controls:DataGrid>
             </ScrollViewer>
+>>>>>>> e7fbb57d3125e05067794d68b531f9afc75b8c26
         </StackPanel>
     </Grid>
 </Page>

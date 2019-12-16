@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using Windows.System;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Animation;
@@ -16,14 +18,18 @@ namespace MediMotion
 
     public sealed partial class Pharmaceuticals : Page
     {
+        private static ContentDialog dialog = null;
         public Pharmaceuticals()
         {
             this.InitializeComponent();
             PharmaceuticalsCVS.Source = Pharmaceutical.GetPharmaceuticalsGrouped(50);
+
+            Window.Current.CoreWindow.KeyDown += ContentDialog_KeyDown;
+
         }
         public async void pharmaItemClicked(object sender, ItemClickEventArgs e)
         {
-            ContentDialog dialog = new ContentDialog()
+             dialog = new ContentDialog()
             {
                 Title = "  ⓘ Information",
                 IsPrimaryButtonEnabled = false,
@@ -36,6 +42,19 @@ namespace MediMotion
                 Style = Application.Current.Resources["ScrollableContentDialogStyle"] as Style
             };
             await dialog.ShowAsync();
+        }
+        private static bool IsEscPressed()
+        {
+            var escState = CoreWindow.GetForCurrentThread().GetKeyState(VirtualKey.Escape);
+            return (escState & CoreVirtualKeyStates.Down) == CoreVirtualKeyStates.Down;
+        }
+        private void ContentDialog_KeyDown(CoreWindow window, KeyEventArgs e)
+        {
+            if (IsEscPressed())
+            {
+                if(dialog != null)
+                    dialog.Hide();
+            }
         }
     }
 }
