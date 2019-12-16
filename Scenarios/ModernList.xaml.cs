@@ -76,7 +76,7 @@ namespace MediMotion.Scenarios
         {
 
            //RootPage.Current.UpdateBackground(Items.First().HeroImage, 0);
-           SectionList.SelectedIndex = 0;
+           //SectionList.SelectedIndex = 0;
         }
 
         private void MainPage_SizeChanged(object sender, SizeChangedEventArgs e)
@@ -160,22 +160,22 @@ namespace MediMotion.Scenarios
             SetupCompositionImage(image, shadow);
         }
 
-        private void Timeline_KeyDown(object sender, KeyRoutedEventArgs e)
-        {
-            if (e.OriginalKey == Windows.System.VirtualKey.GamepadDPadLeft ||
-                e.OriginalKey == Windows.System.VirtualKey.GamepadLeftThumbstickLeft)
-            {
-                if (previousFocus != null)
-                {
-                    previousFocus?.Focus(FocusState.Keyboard);
-                }
-                else
-                {
-                    SectionList.Focus(FocusState.Keyboard);
-                }
-                e.Handled = true;
-            }
-        }
+        //private void Timeline_KeyDown(object sender, KeyRoutedEventArgs e)
+        //{
+        //    if (e.OriginalKey == Windows.System.VirtualKey.GamepadDPadLeft ||
+        //        e.OriginalKey == Windows.System.VirtualKey.GamepadLeftThumbstickLeft)
+        //    {
+        //        if (previousFocus != null)
+        //        {
+        //            previousFocus?.Focus(FocusState.Keyboard);
+        //        }
+        //        else
+        //        {
+        //            SectionList.Focus(FocusState.Keyboard);
+        //        }
+        //        e.Handled = true;
+        //    }
+        //}
 
         ListViewItem previousFocus;
 
@@ -220,38 +220,38 @@ namespace MediMotion.Scenarios
         private void UpdateTemplateContentVisibility(object sender)
         {
             var grid = sender as Grid;
-            var commentStack = grid.FindName("CommentStack") as StackPanel;
-            var likeStack = grid.FindName("LikeStack") as StackPanel;
+            //var commentStack = grid.FindName("CommentStack") as StackPanel;
+            //var likeStack = grid.FindName("LikeStack") as StackPanel;
 
             var width = Window.Current.Bounds.Width;
 
             if (width > 1000)
             {
-                likeStack.Visibility = Visibility.Visible;
-                commentStack.Visibility = Visibility.Visible;
+                //likeStack.Visibility = Visibility.Visible;
+                //commentStack.Visibility = Visibility.Visible;
             }
             else if (width > 700)
             {
-                likeStack.Visibility = Visibility.Collapsed;
-                commentStack.Visibility = Visibility.Visible;
+                //likeStack.Visibility = Visibility.Collapsed;
+                //commentStack.Visibility = Visibility.Visible;
             }
             else
             {
-                likeStack.Visibility = Visibility.Collapsed;
-                commentStack.Visibility = Visibility.Collapsed;
+                //likeStack.Visibility = Visibility.Collapsed;
+                //commentStack.Visibility = Visibility.Collapsed;
             }
         }
 
-        private void HamburgerButton_Click(object sender, RoutedEventArgs e)
-        {
-            Splitter.IsPaneOpen = !Splitter.IsPaneOpen;
-        }
+        //private void HamburgerButton_Click(object sender, RoutedEventArgs e)
+        //{
+        //    Splitter.IsPaneOpen = !Splitter.IsPaneOpen;
+        //}
 
-        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            SectionTitle.Text = e.AddedItems.First() as string;
-            Splitter.IsPaneOpen = false;
-        }
+        //private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    //SectionTitle.Text = e.AddedItems.First() as string;
+        //    Splitter.IsPaneOpen = false;
+        //}
 
         public void RaisePropertyChanged([CallerMemberName]string propertyName = null)
         {

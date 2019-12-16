@@ -12,7 +12,7 @@ namespace MediMotion.Data
         private static string imageHome = "http://adx.azureedge.net/Images/Watermark";
         public string Title { get; set; }
         public string Summary { get; set; } = lorem;
-        public string Author { get; set; } = "JILL SMITH";
+        public string Description { get; set; } = "JILL SMITH";
         public DateTime Timestamp { get; set; }
         public int Likes { get; set; }
         public string HeroImage { get; set; }
@@ -23,11 +23,11 @@ namespace MediMotion.Data
             var items = new List<NewsItem>();
             items.Add(new NewsItem()
             {
-                Title = "WITH LOVE FROM SEATTLE",
+                Title = "Cancer deletion",
                 Timestamp = DateTime.Now,
                 Likes = 5,
                 HeroImage = $"{imageHome}/Large/FeaturedImage_2x1_Image47.jpg",
-                IsHero = true
+                Description = "Very nice procedure for sure"
             });
             items.Add(new NewsItem()
             {
@@ -41,7 +41,8 @@ namespace MediMotion.Data
                 Title = "ALL FOR THE GAME",
                 Timestamp = items.Last().Timestamp - TimeSpan.FromMinutes(new Random().Next(9, 36) * 10),
                 Likes = 4,
-                HeroImage = $"{imageHome}/Large/FeaturedImage_2x1_Image13.jpg"
+                HeroImage = $"{imageHome}/Large/FeaturedImage_2x1_Image13.jpg",
+                Summary = "Nail operation"
             });
             items.Add(new NewsItem()
             {
