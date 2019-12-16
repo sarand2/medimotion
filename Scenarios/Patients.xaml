@@ -81,13 +81,10 @@
                                 <Rectangle Margin="10,10,0,0" Width="150" HorizontalAlignment="Left" Style="{StaticResource CardSeparator}"/>
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock Margin="5,5,0,0" Style="{StaticResource CardSection}" Foreground="White" Text="Patient ID" FontFamily="Segoe UI" />
-                                    <TextBlock Margin="5,5,0,0" Style="{StaticResource CardHeader}" Foreground="White" Text="{x:Bind Position}" FontFamily="Segoe UI" />
-                                    <Border Margin="5,7,0,0"  Height="15" VerticalAlignment="Center" Style="{StaticResource SeparatorStyle}"/>
-                                    <TextBlock Margin="5,5,0,0" Style="{StaticResource CardSection}" Foreground="White" Text="Group" FontFamily="Segoe UI" />
-                                    <TextBlock Margin="5,5,0,0" Style="{StaticResource CardHeader}" Foreground="White" Text="{x:Bind Position}" FontFamily="Segoe UI" />
+                                    <TextBlock Margin="5,5,0,0" Style="{StaticResource CardHeader}" Foreground="White" Text="{x:Bind Id}" FontFamily="Segoe UI" />
                                     <Border Margin="5,7,0,0"  Height="15" VerticalAlignment="Center" Style="{StaticResource SeparatorStyle}"/>
                                     <TextBlock Margin="5,5,0,0" Style="{StaticResource CardSection}" Foreground="White" Text="Age" FontFamily="Segoe UI" />
-                                    <TextBlock Margin="5,5,0,0" Style="{StaticResource CardHeader}" Foreground="White" Text="{x:Bind Position}" FontFamily="Segoe UI" />
+                                    <TextBlock Margin="5,5,0,0" Style="{StaticResource CardHeader}" Foreground="White" Text="{x:Bind Age}" FontFamily="Segoe UI" />
                                 </StackPanel>
                                 <Rectangle Margin="10,10,0,0" Width="150" HorizontalAlignment="Left" Style="{StaticResource CardSeparator}"/>
                                 <TextBlock Margin="5,5,0,0" Style="{StaticResource CardSection}" Foreground="White" Text="Assigned specialist" FontFamily="Segoe UI" />

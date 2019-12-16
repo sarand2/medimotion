@@ -196,6 +196,18 @@ namespace MediMotion.Model
                 childrenCount = value;
             }
         }
+        private string id;
+        public string Id
+        {
+            get
+            {
+                return id;
+            }
+            set
+            {
+                id = value;
+            }
+        }
 
         public string Position { get; set; }
         public string PhoneNumber { get; set; }
@@ -250,6 +262,7 @@ namespace MediMotion.Model
             BirthDate = string.Empty;
             Marital = string.Empty;
             Region = string.Empty;
+            Id = string.Empty;
             PersonPicture = null;
             ChildrenCount = string.Empty;
         }
@@ -274,6 +287,7 @@ namespace MediMotion.Model
                 Age = GenerateAge(),
                 BirthDate = GenerateBirtDate(),
                 Marital = GenerateMarital(),
+                Id = GenerateID(),
                 ChildrenCount = GenerateChildrenCount()
             };
         }
@@ -358,6 +372,10 @@ namespace MediMotion.Model
         private static string GeneratePhoneNumber()
         {
             return string.Format("{0:(###)} {1:###}-{2:####}", random.Next(100, 999), random.Next(100, 999), random.Next(1000, 9999));
+        }
+        private static string GenerateID()
+        {
+            return string.Format("{0:(##)}-{1:###}", random.Next(10, 99), random.Next(100, 999));
         }
         private static string GeneratePostalCode()
         {
