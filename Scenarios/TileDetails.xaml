@@ -8,16 +8,16 @@
     xmlns:media="using:Microsoft.UI.Xaml.Media"
     xmlns:datamodel="using:MediMotion.DataModel"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    Background="Transparent"
     xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations">
 
     <Page.Resources>
         <media:AcrylicBrush x:Key="CustomAcrylicInAppBrush" BackgroundSource="Backdrop" TintOpacity ="0.3"  TintColor="Black" FallbackColor="Black"/>
-        <media:AcrylicBrush x:Key="CustomAcrylicInAppBrush1" BackgroundSource="Backdrop" TintOpacity ="0.8"  TintColor="DarkBlue" FallbackColor="Black"/>
+        <media:AcrylicBrush x:Key="CustomAcrylicInAppBrush1" BackgroundSource="Backdrop" TintOpacity ="0.7"  TintColor="Black" FallbackColor="Black"/>
         <SolidColorBrush x:Key="ButtonRevealBorderBrushPointerOver" Color="Transparent"/>
         <SolidColorBrush x:Key="ButtonRevealBorderBrushPressed" Color="Transparent"/>
     </Page.Resources>
-    <RelativePanel Style="{StaticResource PageBackground}">
+    <RelativePanel Style="{StaticResource PageBackground}" Background="Transparent">
 
         <Grid Grid.Row="0" Background="{StaticResource CustomAcrylicInAppBrush}" x:Name="TopBorder"
               RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True"
@@ -48,7 +48,7 @@
 
             </Grid>
         </Grid>
-        <StackPanel  RelativePanel.Below="TopBorder" Grid.ColumnSpan="2">
+        <StackPanel  RelativePanel.Below="TopBorder" Grid.ColumnSpan="2" Background="{StaticResource CustomAcrylicInAppBrush1}">
             <TextBlock x:Name="episodesheader" Style="{ThemeResource SubtitleTextBlockStyle}" FontWeight="Medium" Text="Description" Margin="24,16,0,0"/>
             <TextBlock x:Name="feeddetails"  Style="{ThemeResource BodyTextBlockStyle}" Margin="25,15,0,0" Foreground="{ThemeResource SystemControlForegroundChromeWhiteBrush}" 
                            HorizontalAlignment="Left" FontSize="14"  TextAlignment="Justify" TextWrapping="Wrap" Text="{x:Bind CurrentFeed.Description}" />
