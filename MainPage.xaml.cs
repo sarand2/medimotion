@@ -29,6 +29,9 @@ using Windows.Globalization;
 using Windows.UI.Xaml.Documents;
 using System.Threading.Tasks;
 using MediMotion.Model;
+using Windows.UI;
+using Windows.System;
+using System.Threading;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -160,13 +163,13 @@ namespace MediMotion
                 StatusPanel.Visibility = Visibility.Collapsed;
             }
 
-			// Raise an event if necessary to enable a screen reader to announce the status update.
-			var peer = FrameworkElementAutomationPeer.FromElement(StatusBlock);
-			if (peer != null)
-			{
-				peer.RaiseAutomationEvent(AutomationEvents.LiveRegionChanged);
-			}
-		}
+            // Raise an event if necessary to enable a screen reader to announce the status update.
+            var peer = FrameworkElementAutomationPeer.FromElement(StatusBlock);
+            if (peer != null)
+            {
+                peer.RaiseAutomationEvent(AutomationEvents.LiveRegionChanged);
+            }
+        }
 
         async void Footer_Click(object sender, RoutedEventArgs e)
         {
@@ -288,13 +291,36 @@ namespace MediMotion
             }
             else
             {
-                this.mySearchBox.PlaceholderText = "Permission to access capture resources was not given by the user, reset the application setting in Settings->Privacy->Microphone.";
+                this.commandBox.PlaceholderText = "Permission to access capture resources was not given by the user, reset the application setting in Settings->Privacy->Microphone.";
                 btnContinuousRecognize.IsEnabled = false;
-              //  cbLanguageSelection.IsEnabled = false;
+                //  cbLanguageSelection.IsEnabled = false;
             }
 
         }
-
+        public async void btnExecuteCommand(object sender, RoutedEventArgs e)
+        {
+            ContinuousRecognize_Click(null, null);
+            await Task.Run(async () =>
+            {
+                await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, async () =>
+                {
+                    ContentDialog dialog = new ContentDialog()
+                    {
+                        Title = "  ⓘ Information",
+                        PrimaryButtonText = "",
+                        Content = new ExampleControl(commandBox.Text),
+                        MaxWidth = 650,
+                        MinWidth = 650,
+                        MinHeight = 200,
+                        MaxHeight = 200,
+                        Style = Application.Current.Resources["MyContentDialogStyle"] as Style
+                    };
+                    dialog.ShowAsync();
+                    await Task.Delay(3500);
+                    dialog.Hide();
+                });
+            });
+        }
 
         /// <summary>
         /// Initialize Speech Recognizer and compile constraints.
@@ -363,12 +389,12 @@ namespace MediMotion
                         var recoString = dictatedTextBuilder.ToString();
                         if (recoString.Contains("clear") || recoString.Contains("Clear"))
                         {
-                            mySearchBox.QueryText = "";
+                            commandBox.Text = "";
                             dictatedTextBuilder.Clear();
                         }
                        else
                         {
-                            mySearchBox.QueryText = dictatedTextBuilder.ToString();
+                            commandBox.Text = dictatedTextBuilder.ToString();
                         }
                         isListening = false;
                     });
@@ -401,11 +427,11 @@ namespace MediMotion
             {
                 if(textboxContent.Contains("clear"))
                 {
-                    mySearchBox.QueryText = "";
+                    commandBox.Text = "";
                     dictatedTextBuilder.Clear();
                 }
                 else
-                mySearchBox.QueryText = textboxContent;
+                commandBox.Text = textboxContent;
                // dictationTextBox.Text = textboxContent;
                 //btnClearText.IsEnabled = true;
             });
@@ -434,12 +460,12 @@ namespace MediMotion
                     
                     if(recoString.Contains("clear"))
                      {
-                        mySearchBox.QueryText = "";
+                        commandBox.Text = "";
                         dictatedTextBuilder.Clear();
                     }
                     else
                     {
-                        mySearchBox.QueryText = recoString;
+                        commandBox.Text = recoString;
                     }
                    
                    // btnClearText.IsEnabled = true;
@@ -455,12 +481,12 @@ namespace MediMotion
                     var recoString = dictatedTextBuilder.ToString();
                     if (recoString.Contains("clear"))
                     {
-                        mySearchBox.QueryText = "";
+                        commandBox.Text = "";
                         dictatedTextBuilder.Clear();
                     }
                     else
                     {
-                        mySearchBox.QueryText = recoString;
+                        commandBox.Text = recoString;
                     }
                     string discardedText = args.Result.Text;
                     if (!string.IsNullOrEmpty(discardedText))
@@ -496,6 +522,7 @@ namespace MediMotion
             btnContinuousRecognize.IsEnabled = false;
             if (isListening == false)
             {
+                buttonMicrophone.Foreground = new SolidColorBrush(Colors.OrangeRed);
                 // The recognizer can only start listening in a continuous fashion if the recognizer is currently idle.
                 // This prevents an exception from occurring.
                 if (speechRecognizer.State == SpeechRecognizerState.Idle)
@@ -532,6 +559,7 @@ namespace MediMotion
             }
             else
             {
+                buttonMicrophone.Foreground = new SolidColorBrush(Colors.WhiteSmoke);
                 isListening = false;
                 //DictationButtonText.Text = " Dictate";
               //  cbLanguageSelection.IsEnabled = true;
@@ -549,12 +577,12 @@ namespace MediMotion
                         var recoString = dictatedTextBuilder.ToString();
                         if (recoString.Contains("clear"))
                         {
-                            mySearchBox.QueryText = "";
+                            commandBox.Text = "";
                             dictatedTextBuilder.Clear();
                         }
                         else
                         {
-                            mySearchBox.QueryText = recoString;
+                            commandBox.Text = recoString;
                         }
                     }
                     catch (Exception exception)
@@ -574,7 +602,7 @@ namespace MediMotion
         /// <param name="e">Unused text changed arguments</param>
         private void dictationTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            var grid = (Grid)VisualTreeHelper.GetChild(mySearchBox, 0);
+            var grid = (Grid)VisualTreeHelper.GetChild(commandBox, 0);
             for (var i = 0; i <= VisualTreeHelper.GetChildrenCount(grid) - 1; i++)
             {
                 object obj = VisualTreeHelper.GetChild(grid, i);
