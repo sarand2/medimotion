@@ -59,7 +59,7 @@
                                 <TextBlock Text="{x:Bind Likes}" Style="{ThemeResource CaptionTextBlockStyle}" Margin="5,0,0,0"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="{x:Bind Description}" Style="{ThemeResource BodyTextBlockStyle}" FontStyle="Italic" Margin="0,12,0,0" TextTrimming="CharacterEllipsis" MaxWidth="500" MaxLines="1"/>
+                                <TextBlock Text="{x:Bind Description}" Style="{ThemeResource BodyTextBlockStyle}" FontStyle="Italic" Margin="0,0,0,0" TextTrimming="None"  MaxLines="2"/>
                             </StackPanel>
 
                         </StackPanel>

@@ -83,7 +83,7 @@ namespace MediMotion.DataModel
             AllFeeds.Add(
                 new Feed(
                     new Uri("ms-appx:///Images/1.jpg"),
-                    "Sphygmomanometer",
+                    "Sgymanometer",
                     "Accoson portable aneroid sphygmomanometer range of small, light, robust yet easily portable aneroid sphygmomanometer allowing users to meet the requirements of each of your patients in almost any environment and situation.\nThe Accoson portable aneroid sphygmomanometer is designed with a clear white face with fine pointer which allows for precise indication with the scale graduations starting at zero.\nThis sphygmomanometer is designed for one handed use, being suitable for both left and right hands.\nAneroid (mechanical), devices don’t use mercury but provide accurate results when calibrated. Capable of withstanding 100% overpressure.\nThe Limpet model is designed for use in much the same way as the Duplex. However, this version is much lighter and less bulky.\nSupplied complete with a protective, soft zipper case\nRange: 0-300mmHg \nAccurate to ISO 81061-1 \nAdult Cuff Range: 24cm - 35 cm \nLarge Adult Cuff Range: 34 - 46 cm \nOutsize Adult Cuff Range: 45 - 60 cm \nChild Cuff Range: 18 - 25 cm \nQuantity: 1 \n",
                     new Uri("ms-appx:///Images/1.jpg"), 
                     ""));
