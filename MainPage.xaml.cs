@@ -299,6 +299,7 @@ namespace MediMotion
         }
         public async void btnExecuteCommand(object sender, RoutedEventArgs e)
         {
+            string command = commandBox.Text.ToLower();
             ContinuousRecognize_Click(null, null);
             await Task.Run(async () =>
             {
@@ -318,8 +319,13 @@ namespace MediMotion
                     dialog.ShowAsync();
                     await Task.Delay(3500);
                     dialog.Hide();
+                    if (command.Contains("log") && command.Contains("out"))
+                    {
+                        SignOut_Click(null, null);
+                    }
                 });
             });
+            
         }
 
         /// <summary>
